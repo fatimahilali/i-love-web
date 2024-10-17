@@ -259,7 +259,7 @@ main.tag-list {
 
 /* ===== Stijlen voor unieke achtergrondafbeelding ===== */
 .unique-background-img {
-    background-image: url(/Images/magic.jpg); /* Achtergrondafbeelding voor het element */
+    background-image: url(/assets/magic.jpg); /* Achtergrondafbeelding voor het element */
     height: clamp(20rem, 50vh, 30rem); /* Flexibele hoogte tussen 20rem en 30rem, afhankelijk van schermgrootte */
     width: clamp(20rem, 50vw, 40rem); /* Flexibele breedte tussen 20rem en 40rem, afhankelijk van schermgrootte */
     background-repeat: no-repeat; /* Voorkomt herhaling van de achtergrondafbeelding */
