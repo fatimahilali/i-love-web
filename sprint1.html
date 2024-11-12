@@ -7,6 +7,8 @@
     <title>Sprint 1</title> <!-- Titel van de pagina, weergegeven in de browser-tab -->
     <link rel="stylesheet" href="styles/styles.css"> <!-- Verwijzing naar het externe CSS-bestand -->
 </head>
+<!-- Back to Home Button -->
+<a href="index.html" class="back-to-home">Back to Home</a>
 <body class="unique-body">
     
     <!-- ===== Header met de titel voor de pagina ===== -->
@@ -31,12 +33,13 @@
                         
                         <!-- Inhoud binnen de unieke box -->
                         <div class="unique-content">
-                            <h2>Lorem ipsum dolor</h2> <!-- Subtitel binnen de unieke box -->
+                            <h2>Css Selectors</h2> <!-- Subtitel binnen de unieke box -->
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p> <!-- Beschrijvingstekst binnen de box -->
-                        </div>
-                    </article>
+
+                                In CSS gebruik je selectors om te bepalen welke HTML-elementen je wilt stylen. Selectors zijn als "aanwijzers" die je richt op specifieke delen van je webpagina, zoals kopteksten, paragrafen, of knoppen. Met de juiste selector kun je een element een eigen stijl geven, zoals een kleur, lettertype of grootte.
+                             </p>   
+                                
+           </article>
                 </div>
             </div>
         </section>
@@ -44,13 +47,46 @@
         <!-- Sectie met de buttons -->
         <nav>
             <div class="button-container"> <!-- Container voor de buttons -->
-                <button class="big-button">lorem</button>
-                <button class="big-button">lorem</button>
-                <button class="big-button">lorem</button>
+                <button class="big-button">ID </button>
+                <button class="big-button">Class </button>
+                <button class="big-button">Element </button>
             </div>
-        </nav>
+    <!-- Citatencontainers onder de knoppen -->
+    <div class="container-wrapper"> <!-- Wrapper voor de drie citatencontainers -->
+                
+        <!-- Eerste citaatcontainer -->
+        <div class="quote-container">
+            <h2>ID Selector (#idNaam)</h2>
+            <p>  De ID selector gebruik je om één specifiek element op de pagina te stylen. Een ID is uniek, dus het wordt maar één keer per pagina gebruikt. De ID selector begint met een # gevolgd door de ID-naam./p>
+            <h4 align="right"> #special-quote </h4>
+        </div>
+
+        <!-- Tweede citaatcontainer -->
+        <div class="quote-container">
+            <h2>Class Selector (.classNaam)</h2>
+            <p>De class selector gebruik je om meerdere elementen dezelfde stijl te geven. Dit is handig voor herbruikbare stijlen. Een class selector begint met een . gevolgd door de class-naam.</p>
+            <h4 align="right">.quote-container</h4>
+        </div>
+
+        <!-- Derde citaatcontainer -->
+        <div class="quote-container">
+            <h2>Element Selector (element)</h2>
+            <p> De element selector gebruik je om alle elementen van hetzelfde type te stylen, zoals alle paragrafen (p) of kopteksten (h2).
+                
+                </p>
+            <h4 align="right"> P</h4>
+        </div>
         
-    </main>
+    </div>
+
+    <div class="moving-container">
+        <p class="moving-text">HTML zegt wat er op de pagina staat (zoals tekst of afbeeldingen). CSS-selectors helpen je om precies te kiezen welke delen van de pagina je wilt stylen, zodat ze er beter uitzien.</p>
+    </div>
+    
+</nav>
+
+</main>
+
 
 </body>
 </html>

@@ -124,6 +124,10 @@ main.tag-list {
     margin-top: 15vh; /* Verticale ruimte boven de container */
 }
 
+.box .content h2 {
+    color: #ffffff; /* Geeft de kleur wit aan h2 */
+}
+
 .container .box {
     position: relative; /* Maakt absolute positionering mogelijk binnen deze box */
     width: clamp(15rem, 20vw, 25rem); /* Flexibele breedte */
@@ -244,7 +248,7 @@ main.tag-list {
 /* Hover-effect voor de sprint-titel */
 .sprint-title:hover {
     opacity: 0.9; /* Vermindert de transparantie een beetje, waardoor de tekst helderder lijkt */
-    text-shadow: 0 -5px #4dff, 0 5px #09179b, -5px 0 #7da1d7, 5px 0 #00c2cb; /* Creëert een kleurrijke schaduw rondom de tekst */
+    text-shadow: 0 -5px #4dff, 0 5px #416dd4, -5px 0 #7da1d7, 5px 0 #00c2cb; /* Creëert een kleurrijke schaduw rondom de tekst */
 }
 
   
@@ -319,13 +323,27 @@ main.tag-list {
     text-align: center; /* Centreert de tekst */
 }
 
+/* ===== Stijl voor <h2 koppen ===== */
+
 .unique-content h2 {
-    font-size: clamp(0.875rem, 2vw, 1rem); /* Flexibele tekstgrootte tussen 14px en 16px afhankelijk van schermgrootte */
+    font-size: clamp(0.875rem, 2vw, 2rem); /* Flexibele tekstgrootte tussen 14px en 16px afhankelijk van schermgrootte */
+    animation: colorChange 5s infinite;
+
 }
 
+
+@keyframes colorChange{
+    0% { color: rgb(62, 181, 221); }
+    25% { color: rgb(68, 170, 234); }
+    50% { color: rgb(11, 113, 151); }
+    75% { color: rgb(55, 175, 231); }
+    100% { color: blue; }
+}
 .unique-content p {
     font-size: clamp(0.875rem, 2vw, 1rem); /* Flexibele tekstgrootte van 14px tot 16px */
-    padding: 1rem; /* Ruimte rondom de tekst */
+    margin: 1rem 0; /* Alleen ruimte boven en onder de tekst */
+    padding: 0; /* Verwijdert de padding rondom de tekst */
+    line-height: 1.5; /*  regelafstand voor leesbaarheid */
 }
 
 /* ===== Positionering en styling van span-elementen voor randen ===== */
@@ -413,19 +431,33 @@ main.tag-list {
 
 /* Algemene stijl voor de grote knoppen */
 .big-button {
-    padding: clamp(0.5em, 1vw, 1em) clamp(1em, 2vw, 2em); /* Flexibele padding die zich aanpast aan de schermgrootte: minimale, dynamische en maximale waarden */
+    padding: clamp(0.5em, 1vw, 1em) clamp(1em, 2vw, 2em); /* Flexibele padding */
+    width: clamp(8rem, 20vw, 12rem); /* Flexibele breedte die zich aanpast aan de schermgrootte */
+    height: clamp(2.5rem, 5vw, 3.5rem); /* Flexibele hoogte voor consistentie */
     border: 0.15em solid rgb(106, 163, 173); /* Rand met een vaste dikte en kleur */
-    border-radius: 1em; /* Afgeronde hoeken voor een zachtere uitstraling */
-    background-color: #4dff; /* Achtergrondkleur van de knop */
-    font-weight: 700; /* Maakt de tekst vet voor betere leesbaarheid */
-    text-transform: uppercase; /* Zet alle tekst in hoofdletters */
-    font-family: "Poppins", sans-serif; /* Modern en strak lettertype */
-    transform-style: preserve-3d; /* Houdt de 3D-transformaties intact */
-    transition: all 175ms cubic-bezier(0, 0, 1, 1); /* Zorgt voor vloeiende overgangen bij hover of klik */
-    position: relative; /* Positioneert de knop relatief voor het gebruik van pseudo-elementen */
-    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.3); /* Schaduw onder de knop voor een zwevend effect */
-    font-size: clamp(0.8rem, 1.5vw, 1.2rem); /* Flexibele lettergrootte die zich aanpast aan de schermgrootte */
-}
+    border-radius: 1em; /* Afgeronde hoeken */
+    background-color: #4dff; /* Achtergrondkleur */
+    font-weight: 700; /* Vetgedrukte tekst */
+    text-transform: uppercase; /* Hoofdletters */
+    font-family: "Poppins", sans-serif; /* Lettertype */
+    transform-style: preserve-3d; /* 3D-transformaties behouden */
+    transition: all 175ms cubic-bezier(0, 0, 1, 1); /* Vloeiende overgangen */
+    position: relative; /* Relatieve positionering */
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.3); /* Schaduw onder de knop */
+    font-size: clamp(0.8rem, 1.5vw, 1.2rem); /* Flexibele lettergrootte */
+    color: rgb(0, 128, 255);
+    text-shadow: 
+        0 0 0.3em #0ff, 
+        0 0 0.6em #0ff, 
+        0 0 0.9em #0ff, 
+        0 0 1.2em #00bfff, 
+        0 0 1.5em #00bfff, 
+        0 0 1.8em #00bfff, 
+        0 0 2.1em #1e90ff, 
+        0 0 2.5em #1e90ff;
+    
+    }
+
 
 /* Pseudo-element voor het 3D-effect */
 .big-button::before {
@@ -464,6 +496,8 @@ main.tag-list {
     background-color: #20569c; /* Blauwe achtergrondkleur voor de derde knop */
 }
 
+
+
 /* ===== Responsieve aanpassingen ===== */
 
 /* Voor kleinere schermen (mobiele apparaten) */
@@ -481,21 +515,122 @@ main.tag-list {
 
 
 
+.container-wrapper {
+	display: flex; /* Zet containers naast elkaar */
+	justify-content: center; /* Centreert de containers horizontaal */
+	align-items: center; /* Centreert de inhoud verticaal */
+	gap: 1rem; /* Ruimte tussen de containers */
+	flex-wrap: wrap; /* Laat containers naar een nieuwe regel gaan op kleinere schermen */
+}
+
+.quote-container {
+	position: relative;
+	width: clamp(15rem, 20vw, 18rem); /* Responsieve breedte */
+	height: 16rem; /* Vaste hoogte om containers gelijk te maken */
+	padding: 1rem;
+	background-color: transparent;
+	border-radius: 1rem;
+	overflow: hidden;
+	box-shadow: 0 0 1rem rgba(0, 153, 255, 0.5); /* Neon blauwe gloed */
+	display: flex; /* Zorgt voor uitlijning van de inhoud */
+	flex-direction: column; /* Zet de inhoud onder elkaar */
+	justify-content: center; /* Centreert de inhoud verticaal */
+	align-items: center; /* Centreert de inhoud horizontaal */
+	animation: colorChange 5s infinite alternate; /* Voert de kleurverandering uit */
+    text-align: center; /* Centreert de tekst in de container */
+
+}
+
+
+@keyframes colorChange {
+    0% { box-shadow: 0 0 1rem rgba(0, 153, 255, 0.5); }
+    25% { box-shadow: 0 0 1rem rgba(0, 255, 153, 0.5); }
+    50% { box-shadow: 0 0 1rem rgba(99, 226, 255, 0.5); }
+    75% { box-shadow: 0 0 1rem rgba(76, 8, 73, 0.5); }
+    100% { box-shadow: 0 0 1rem rgba(61, 196, 234, 0.5); }
+}
 
 
 
+.quote-container p,
+.quote-container h4 {
+    color: #ffffff; /* Kleur voor de tekst in h2, p en h4 */
+    margin: 0; /* Verwijdert marges zodat we deze handmatig kunnen toevoegen */
+}
+
+.quote-container h2 {
+    font-size: clamp(0.75rem, 1vw + 0.5rem, 1rem); /* Dynamische grootte tussen 12px en 16px */
+    margin-bottom: 0.5rem; /* Ruimte onder h2 */
+}
+
+.quote-container p {
+    font-size: clamp(0.75rem, 1vw + 0.5rem, 1rem); /* Dynamische grootte tussen 12px en 16px */
+    line-height: 1.5;
+    margin-bottom: 1rem; /* Ruimte onder de paragraaf */
+}
+
+.quote-container h4,h2 {
+    font-size: clamp(0.75rem, 1vw + 0.5rem, 1rem); /* Dynamische grootte tussen 12px en 16px */
+    color: #00c2cb;
+    animation: colorChange 5s infinite alternate; /* Voert de kleurverandering uit */
+    margin-top: 0.5rem; /* Ruimte boven h4 */
+}
 
 
 
+/* ===== Marquee Container ===== */
+.moving-container {
+    overflow: hidden; /* Verbergt de inhoud die buiten de container valt */
+    white-space: nowrap; /* Zorgt ervoor dat de tekst niet afbreekt en in één regel blijft */
+    width: 100%; /* Breidt de container uit tot de volledige breedte van de pagina */
+    color: #fff; /* Zet de tekstkleur in de container op wit */
+    padding: 1rem 0; /* Voegt verticale ruimte boven en onder de tekst toe */
+    left: 0; /* Positioneert de container aan de linkerkant (alleen nuttig als het gepositioneerd is) */
+}
+
+/* ===== Marquee Text ===== */
+.moving-text {
+    display: inline-block; /* Zorgt ervoor dat het element naast andere elementen blijft */
+    padding-left: 100%; /* Begin de tekst buiten beeld, helemaal rechts */
+    animation: moving 15s linear infinite; /* Past een continue horizontale verschuivingsanimatie toe */
+    font-size: 1rem; /* Zet de tekstgrootte op 1rem */
+}
+
+/* ===== Keyframes voor de Marquee Animatie ===== */
+@keyframes moving {
+    0% {
+        transform: translateX(0); /* Startpositie van de tekst (aan de linkerkant van de container) */
+    }
+    100% {
+        transform: translateX(-100%); /* Eindpositie van de tekst (verschuift volledig naar links) */
+    }
+}
 
 
 
+/* ===== Back to Home Button ===== */
+.back-to-home {
+    display: inline-block;
+    padding: 0.4rem 1rem; /* Kleinere padding voor een compacte knop */
+    font-size: 0.9rem; /* Kleinere tekstgrootte */
+    color: #fff; /* Witte tekstkleur */
+    background-color: #5dade2;/* Blauwe achtergrondkleur passend bij het ontwerp */
+    text-decoration: none; /* Verwijdert onderstreping van de link */
+    font-weight: 600; /* Iets dikker lettertype */
+    border-radius: 5px; /* Afgeronde hoeken voor een moderne look */
+    position: absolute; /* Plaatst de knop bovenaan de pagina */
+    top: 1rem; /* Afstand vanaf de bovenkant van de pagina */
+    left: 1rem; /* Afstand vanaf de linkerkant van de pagina */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Overgangseffect voor achtergrond en schaduw */
+    box-shadow: 0 2px 4px rgba(30, 144, 255, 0.4); /* Subtiele schaduw om de knop diepte te geven */
+    z-index: 100; /* Zorgt ervoor dat de knop boven andere elementen blijft */
+}
 
-
-
-
-
-
-
+/* Hover-effect voor de knop */
+.back-to-home:hover {
+    background-color: #1e90ff;/* Lichtere blauw tint bij hover */
+    box-shadow: 0 4px 8px rgba(30, 144, 255, 0.6); /* Vergrote schaduw bij hover */
+    transform: translateY(-1px); /* Lichte beweging omhoog bij hover */
+}
 
 
