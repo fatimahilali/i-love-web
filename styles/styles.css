@@ -578,7 +578,7 @@ main.tag-list {
 
 
 
-/* ===== Marquee Container ===== */
+/* ===== moving Container ===== */
 .moving-container {
     overflow: hidden; /* Verbergt de inhoud die buiten de container valt */
     white-space: nowrap; /* Zorgt ervoor dat de tekst niet afbreekt en in één regel blijft */
