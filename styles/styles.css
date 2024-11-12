@@ -588,7 +588,7 @@ main.tag-list {
     left: 0; /* Positioneert de container aan de linkerkant (alleen nuttig als het gepositioneerd is) */
 }
 
-/* ===== Marquee Text ===== */
+/* ===== moving Text ===== */
 .moving-text {
     display: inline-block; /* Zorgt ervoor dat het element naast andere elementen blijft */
     padding-left: 100%; /* Begin de tekst buiten beeld, helemaal rechts */
