@@ -37,8 +37,8 @@ timeline.from('.logo-text .key', {
 });
 
 /**
- * Knop-animatie
- * @description Laat de knoppen-container als vierde verschijnen.
+ * Button-animatie
+ * @description Laat de knop verschijnen door te vergroten, te draaien en zichtbaar te worden.
  */
 timeline.fromTo('.buttons-container .button', {
     opacity: 0, // Start met volledig transparant
@@ -60,6 +60,7 @@ timeline.from('.image img', {
     y: 100, // Start 100px onder de oorspronkelijke positie
     opacity: 0, // Start met volledig transparant
     duration: 2, // Duurt 2 seconden
+    delay: 0.5, // Wacht 0.5 seconde voordat de animatie begint
     ease: 'power2.out' // Voegt een zachte overgang toe aan de beweging
 });
 
