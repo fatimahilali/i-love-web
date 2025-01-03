@@ -1,636 +1,171 @@
-/*
-Auteur: Fatima El Hilali
-Opdrachtnaam: I Love Web
-
-Huidige CSS-bestand:
-Dit bestand bevat stijlen specifiek voor de homepagina en Sprint 1.
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
-
-/* ===== Stijlen voor de Homepagina ===== */
-* {
-    margin: 0; /* Verwijdert standaard marges van alle elementen */
-    padding: 0; /* Verwijdert standaard padding van alle elementen */
-    box-sizing: border-box; /* Zorgt ervoor dat padding en borders bij de totale breedte en hoogte van een element horen */
-}
-
-/* ===== Stijlen voor de body en achtergrondanimatie ===== */
+/* Algemene stijlen voor de pagina */
 body {
-    background: 
-    repeating-linear-gradient(
-        120deg, /* De hoek van de gradient */
-        transparent, /* Transparante secties van de gradient */
-        transparent 5%, 
-        rgba(0, 0, 0, 0.1) 10%, /* Lichte zwarte kleur met 10% dekking */
-        rgba(0, 0, 0, 0.1) 25% /* Zwarte kleur blijft tot 25% */
-    ),
-    hotpink; /* Roze achtergrondkleur met transparant patroon */
-    background-size: 200% 200%; /* Zorgt voor een grote achtergrond die beweegt */
-    animation: moveBackground 10s linear infinite; /* Laat de achtergrond geleidelijk bewegen */
-    display: flex; /* Maakt de body een flex-container */
-    flex-direction: column; /* Organiseert de inhoud in een kolom */
-    align-items: center; /* Centreert de inhoud horizontaal */
-    justify-content: flex-start; /* Start de layout vanaf de bovenkant */
-    height: 100vh; /* Zorgt ervoor dat de body de volledige hoogte van het scherm vult */
-    overflow-x: hidden; /* Voorkomt horizontaal scrollen */
-}
-
-/* Animatie voor achtergrondbeweging */
-@keyframes moveBackground {
-    0% { background-position: 0% 0%; } /* Begin vanaf de linker bovenhoek */
-    100% { background-position: 100% 100%; } /* Eindig naar de rechter onderhoek */
-}
-
-/* ===== Stijl voor <h1> koppen ===== */
-h1 {
-    font-size: clamp(2rem, 4vw, 5rem); /* Responsieve tekstgrootte tussen 2rem en 5rem */
-    letter-spacing: 0.1em; /* Kleine ruimte tussen letters */
-    color: #af3dff; /* Paarse tekstkleur */
-    text-align: center; /* Centreert de tekst */
-    text-shadow: 1.25vw 2.5vw #a6fd29; /* Groene schaduw voor diepte-effect */
-    margin-top: 5vh; /* Verticale ruimte boven de tekst */
-    z-index: 10; /* Zorgt ervoor dat de tekst boven andere elementen blijft */
-    position: relative; /* Maakt het mogelijk om andere stijlen zoals z-index te gebruiken */
-}
-
-/* Extra responsiviteit voor kleinere schermen */
-@media (max-width: 600px) {
-    h1 {
-        font-size: clamp(1.5rem, 5vw, 3rem); /* Kleiner bereik op kleinere schermen */
-        text-shadow: 0.05em 0.1em #a6fd29; /* Kleinere schaduw voor betere leesbaarheid */
-        margin-top: 3vh; /* Minder verticale ruimte op kleine schermen */
-    }
-}
-.profile-pic {
-    width: clamp(5rem, 10vw, 10rem);   /* Flexibele breedte tussen 5rem en 10rem */
-    height: clamp(5rem, 10vw, 10rem);  /* Flexibele hoogte tussen 5rem en 10rem */
-    border-radius: 50%;                /* Maakt de afbeelding rond */
-    object-fit: cover;                 /* Zorgt ervoor dat de afbeelding mooi past binnen de cirkel */
-    position: relative;                /* Zorgt ervoor dat de positionering van de afbeelding aangepast kan worden */
-    left: 50%;                         /* Verschuift de afbeelding naar het midden van het scherm */
-    transform: translateX(-50%);       /* Centreert de afbeelding exact in het midden */
-}
-
-/* ===== Stijlen voor tag-lijst en individuele tags ===== */
-main.tag-list {
-    padding: clamp(1em, 4vw, 2em); /* Flexibele padding rondom de tag-lijst */
-    text-align: center; /* Zorgt ervoor dat de tags gecentreerd blijven */
-}
-
-.tag {
-    display: inline-block; /* Zorgt ervoor dat elke tag naast elkaar wordt weergegeven */
-    background-color: #444; /* Donkergrijze achtergrondkleur voor standaardweergave */
-    color: #fff; /* Witte tekstkleur */
-    padding: clamp(0.3em, 1vw, 0.5em) clamp(0.5em, 2vw, 1em); /* Flexibele padding */
-    margin: 0.25em; /* Ruimte tussen de tags */
-    border-radius: 0.25em; /* Afgeronde hoeken */
-    font-size: clamp(0.8rem, 1vw, 1rem); /* Flexibele tekstgrootte */
-    font-weight: 600; /* Iets dikker lettertype */
-    transition: background-color 0.3s ease; /* Zachte overgang van de achtergrondkleur bij hover */
-}
-
-/* Media query voor kleinere schermen */
-@media (max-width: 600px) {
-    .tag {
-        padding: 0.3em 0.7em; /* Verklein de padding op kleine schermen */
-        font-size: 0.8rem; /* Verminder de lettergrootte op kleine schermen */
-    }
-}
-
-
-.tag:hover {
-    background-color: #888; /* Lichtere grijstint bij hover */
-}
-
-/* Specifieke kleuren en hover-effecten voor tags */
-.tag:nth-child(1) { background-color: #4dff03; }
-.tag:nth-child(2) { background-color: #af3dff; }
-.tag:nth-child(3) { background-color: #55ffe1; }
-.tag:nth-child(4) { background-color: #71a3ff; }
-
-.tag:nth-child(1):hover { background-color: #37013a; }
-.tag:nth-child(2):hover { background-color: #444; }
-.tag:nth-child(3):hover { background-color: #111845; }
-.tag:nth-child(4):hover { background-color: #fcb1e9; }
-
-/* ===== Flexcontainer en boxen ===== */
-.container {
-    display: flex; /* Gebruik flexbox om de boxen uit te lijnen */
-    flex-wrap: wrap; /* Zorgt dat boxen naar een nieuwe regel verplaatsen als er geen ruimte is */
-    justify-content: center; /* Centreer de boxen horizontaal */
-    align-items: center; /* Centreer de boxen verticaal */
-    gap: clamp(1rem, 2vw, 2.5rem); /* Flexibele ruimte tussen de boxen */
-    margin-top: 15vh; /* Verticale ruimte boven de container */
-}
-
-.box .content h2 {
-    color: #ffffff; /* Geeft de kleur wit aan h2 */
-}
-
-.container .box {
-    position: relative; /* Maakt absolute positionering mogelijk binnen deze box */
-    width: clamp(15rem, 20vw, 25rem); /* Flexibele breedte */
-    height: clamp(20rem, 50vh, 30rem); /* Flexibele hoogte */
-    display: flex; /* Flexbox om de inhoud te centreren */
-    justify-content: center; /* Centreer de inhoud horizontaal */
-    align-items: center; /* Centreer de inhoud verticaal */
-    margin: 2rem; /* Flexibele marges */
-    transition: 0.5s; /* Soepele overgang bij hover */
-}
-
-/* Pseudo-elementen voor animatie en effecten */
-.container .box::before,
-.container .box::after {
-    content: ''; /* Leeg pseudo-element */
-    position: absolute; /* Plaats absoluut binnen de box */
-    top: 0; /* Begin bovenaan de box */
-    left: 5vw; /* Plaats naar rechts */
-    width: 50%; /* Breedte van 50% van de box */
-    height: 80%; /* Hoogte van de box */
-    background: #fff; /* Witte achtergrond */
-    border-radius: 8px; /* Afgeronde randen */
-    animation: moveUpDown 2s ease-in-out infinite; /* Subtiele beweging */
-}
-
-@keyframes moveUpDown {
-    0%, 100% { transform: translateY(0); } /* Start en eindpositie */
-    50% { transform: translateY(10px); } /* Beweeg 10px naar beneden */
-}
-
-/* Verloopkleuren voor specifieke boxen */
-.container .box:nth-child(1)::before,
-.container .box:nth-child(1)::after {
-    background: linear-gradient(315deg, #4dff03, #b0de9c);
-}
-
-.container .box:nth-child(2)::before,
-.container .box:nth-child(2)::after {
-    background: linear-gradient(315deg, #af3dff, #caa3e5);
-}
-
-.container .box:nth-child(3)::before,
-.container .box:nth-child(3)::after {
-    background: linear-gradient(315deg, #69a99d, #55ffe1);
-}
-
-.container .box:nth-child(4)::before,
-.container .box:nth-child(4)::after {
-    background: linear-gradient(315deg, #37013a, #db56e2);
-}
-
-.container .box:nth-child(5)::before,
-.container .box:nth-child(5)::after {
-    background: linear-gradient(315deg, #3772d7, #71a3ff);
-}
-
-.container .box:nth-child(6)::before,
-.container .box:nth-child(6)::after {
-    background: linear-gradient(315deg, #f542c5, #fcb1e9);
-}
-
-.container .box .content {
-    position: relative; /* Inhoud relatief gepositioneerd */
-    padding: clamp(1rem, 2vh, 3rem) clamp(2rem, 4vw, 5rem); /* Flexibele padding */
-    background: rgba(11, 144, 75, 0.05); /* Transparante groene achtergrond */
-    backdrop-filter: blur(10px); /* Wazig effect */
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1); /* Subtiele schaduw */
-    border-radius: 8px; /* Afgeronde randen */
-    z-index: 1; /* Boven de pseudo-elementen */
-    transition: 0.5s; /* Soepele overgang bij hover */
-    color: #fff; /* Witte tekstkleur */
-}
-
-.container .box:hover .content {
-    left: -2vw; /* Verplaats de inhoud licht naar links bij hover */
-    padding: clamp(2rem, 6vh, 4rem) clamp(2rem, 4vw, 5rem); /* Grotere padding bij hover */
-}
-
-.container .box .content h2 {
-    font-size: clamp(1.5rem, 2.5vw, 3rem); /* Flexibele tekstgrootte */
-    margin-bottom: 1rem; /* Ruimte onder de titel */
-}
-
-.container .box .content p {
-    font-size: clamp(1rem, 1.1vw, 1.5rem); /* Flexibele tekstgrootte */
-    margin-bottom: 1rem; /* Ruimte onder de paragrafen */
-    line-height: 1.4em; /* Meer ruimte tussen de regels */
-}
-
-.container .box .content a {
-    display: inline-block; /* Zorgt ervoor dat de link als een blok wordt weergegeven */
-    font-size: clamp(1rem, 1.1vw, 1.5rem); /* Flexibele tekstgrootte voor de links */
-    color: #e465a5; /* Roze kleur */
-    background: #fff; /* Witte achtergrond */
-    padding: 1vh 2vw; /* Flexibele padding */
-    border-radius: 4px; /* Afgeronde randen */
-    text-decoration: none; /* Verwijder standaard onderstreping */
-    font-weight: 700; /* Vetgedrukt */
-    margin-top: 1vh; /* Ruimte boven de link */
-    transition: background 0.5s, box-shadow 0.5s; /* Overgangen voor achtergrondkleur en schaduw bij hover */
-}
-
-/* ===== Stijlen voor sprint 1 pagina ===== */
-.unique-body {
-    background-color: #111845; /* Donkere blauwe achtergrondkleur */
-}
-/* . Stijlen voor de sprint-titel */
-.sprint-title {
-    position: relative; /* Maakt positionering mogelijk voor eventuele animaties of effecten */
-    font-family: "Poppins", sans-serif; /* Zorgt voor een strak, modern lettertype */
-    color: #f6d8d5 !important; /* Lichtroze kleur voor de tekst, met `!important` om conflicten te voorkomen */
-    font-size: 10vw !important; /* Maakt de lettergrootte responsief, zodat deze zich aanpast aan de schermbreedte */
-    transition: opacity 0.3s; /* Zorgt voor een vloeiende overgang bij veranderingen in transparantie */
-    animation: animate 2s ease-in-out infinite; /* Start een continue animatie die elke 2 seconden herhaalt */
-}
-
-  
-/* Hover-effect voor de sprint-titel */
-.sprint-title:hover {
-    opacity: 0.9; /* Vermindert de transparantie een beetje, waardoor de tekst helderder lijkt */
-    text-shadow: 0 -5px #4dff, 0 5px #416dd4, -5px 0 #7da1d7, 5px 0 #00c2cb; /* Creëert een kleurrijke schaduw rondom de tekst */
-}
-
-  
-  /* Keyframes voor animatie */
-  @keyframes animate {
-    0%, 100% { text-shadow: 0 -5px #4dff, 0 5px #09179b, -5px 0 #7da1d7, 5px 0 #00c2cb; opacity: 1; }
-    25% { text-shadow: 0 -5px #09179b, 0 5px #7da1d7, -5px 0 #00c2cb, 5px 0 #4dff; opacity: 0.7; }
-    50% { text-shadow: 0 -5px #7da1d7, 0 5px #00c2cb, -5px 0 #4dff, 5px 0 #09179b; opacity: 0.5; }
-    75% { text-shadow: 0 -5px #00c2cb, 0 5px #4dff, -5px 0 #09179b, 5px 0 #7da1d7; opacity: 0.8; }
+    background-color: #101013;
+    color: #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    margin: 0;
+    overflow: hidden; /* Verwijder scrollbars */
   }
   
-
-/* ===== Stijlen voor unieke achtergrondafbeelding ===== */
-.unique-background-img {
-    background-image: url(../assets/magic.jpg); /* Gebruik ../ om naar de bovenliggende map te verwijzen */
-    height: clamp(20rem, 50vh, 30rem); /* Flexibele hoogte tussen 20rem en 30rem, afhankelijk van schermgrootte */
-    width: clamp(20rem, 50vw, 40rem); /* Flexibele breedte tussen 20rem en 40rem, afhankelijk van schermgrootte */
-    background-repeat: no-repeat; /* Voorkomt herhaling van de achtergrondafbeelding */
-    background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige ruimte vult */
-    margin: 5% auto; /* Zorgt voor verticale ruimte en centreert het element horizontaal */
-    padding: 2rem; /* Ruimte binnenin de container */
-    border: 0.1rem solid #2a3cad; /* Blauwe rand rond het element */
-    border-radius: 0.4rem; /* Afgeronde hoeken voor een zachter uiterlijk */
-    box-shadow: 0 0 0.5rem #2a3cad; /* Subtiele schaduw rondom het element */
-    position: relative; /* Maakt het mogelijk om absolute elementen binnen deze container te positioneren */
-}
-
-.unique-container {
-    padding-top: 2rem; /* Ruimte boven in de container */
-    padding-bottom: 2rem; /* Ruimte onder in de container */
-}
-
-.unique-box {
-    position: absolute; /* Exacte plaatsing */
-    top: 50%; /* Verticaal gecentreerd */
-    left: 50%; /* Horizontaal gecentreerd */
-    transform: translate(-50%, -50%); /* Exact centreren */
-    width: clamp(15rem, 50%, 25rem); /* Flexibele breedte tussen 15rem en 25rem, afhankelijk van schermgrootte */
-    height: clamp(15rem, 50vh, 25rem); /* Flexibele hoogte tussen 15rem en 25rem, afhankelijk van schermgrootte */
-    background: #111845a6; /* Half-transparante achtergrond */
-    overflow: hidden; /* Verbergt inhoud buiten het element */
-    box-shadow: 0 2rem 5rem rgb(23, 32, 90); /* Diepte-effect */
-    border: 0.2rem solid #2a3cad; /* Blauwe rand */
-    color: white; /* Witte tekstkleur */
-    padding: 2rem; /* Binnenruimte */
-}
-
-.unique-box:before {
-    content: ''; /* Leeg pseudo-element voor overlay */
-    position: absolute; /* Absoluut gepositioneerd */
-    top: 0;
-    left: -100%; /* Start buiten zicht */
-    height: 100%;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.1); /* Licht transparante overlay */
-    transition: 0.5s; /* Overgang bij hover */
-    pointer-events: none; /* Geen muisinteracties */
-}
-
-.unique-box:hover:before {
-    left: -50%; /* Verschuif naar het midden bij hover */
-    transform: skewX(-5deg); /* Lichte kanteling voor effect */
-}
-
-.unique-content {
-    position: absolute; /* Exacte plaatsing binnen de box */
-    top: 1.5rem; /* Afstand vanaf de bovenkant */
-    left: 1.5rem; /* Afstand vanaf de linkerkant */
-    bottom: 1.5rem; /* Afstand vanaf de onderkant */
-    border: 0.1rem solid  rgb(132, 158, 164); /* grijs rand */
-    padding: 2rem; /* Binnenruimte */
-    text-align: center; /* Centreert de tekst */
-}
-
-/* ===== Stijl voor <h2 koppen ===== */
-
-.unique-content h2 {
-    font-size: clamp(0.875rem, 2vw, 2rem); /* Flexibele tekstgrootte tussen 14px en 16px afhankelijk van schermgrootte */
-    animation: colorChange 5s infinite;
-
-}
-
-
-@keyframes colorChange{
-    0% { color: rgb(62, 181, 221); }
-    25% { color: rgb(68, 170, 234); }
-    50% { color: rgb(11, 113, 151); }
-    75% { color: rgb(55, 175, 231); }
-    100% { color: blue; }
-}
-.unique-content p {
-    font-size: clamp(0.875rem, 2vw, 1rem); /* Flexibele tekstgrootte van 14px tot 16px */
-    margin: 1rem 0; /* Alleen ruimte boven en onder de tekst */
-    padding: 0; /* Verwijdert de padding rondom de tekst */
-    line-height: 1.5; /*  regelafstand voor leesbaarheid */
-}
-
-/* ===== Positionering en styling van span-elementen voor randen ===== */
-.unique-box span {
-    position: absolute; /* Absoluut gepositioneerd binnen de box */
-    display: block; /* Blokweergave om volledige breedte/hoogte te gebruiken */
-    box-sizing: border-box; /* Houdt rekening met padding en borders */
-}
-
-/* Zorg ervoor dat elke `span` aan een specifieke kant van de container wordt geplaatst */
-.unique-box span:nth-child(1) { 
-    top: 0; /* Positioneer bovenaan */
-    left: 0; 
-    width: 100%; /* Laat de balk de volledige breedte innemen */
-    height: 0.2rem; /* Dunne balk bovenaan */
-}
-
-.unique-box span:nth-child(2) { 
-    top: 0; /* Start aan de bovenkant */
-    right: 0; /* Positioneer aan de rechterkant */
-    width: 0.2rem; /* Dunne verticale balk */
-    height: 100%; /* Laat de balk de volledige hoogte innemen */
-}
-
-.unique-box span:nth-child(3) { 
-    bottom: 0; /* Positioneer onderaan */
-    left: 0; 
-    width: 100%; /* Laat de balk de volledige breedte innemen */
-    height: 0.2rem; /* Dunne balk onderaan */
-}
-
-.unique-box span:nth-child(4) { 
-    top: 0; /* Start aan de bovenkant */
-    left: 0; /* Positioneer aan de linkerkant */
-    width: 0.2rem; /* Dunne verticale balk */
-    height: 100%; /* Laat de balk de volledige hoogte innemen */
-}
-
-/* ===== Animaties voor horizontale en verticale lijnen ===== */
-.unique-box span:nth-child(1):before, 
-.unique-box span:nth-child(3):before {
-    content: ''; /* Leeg pseudo-element voor animatie */
-    position: absolute; /* Absoluut gepositioneerd binnen de span */
-    width: 100%; /* Laat de animatie de volledige breedte innemen */
-    height: 100%; 
-    background: #4dff; /* Groene kleur */
-    animation: animateHorizontal 4s linear infinite; /* Continue animatie voor horizontale lijnen */
-}
-
-
-.unique-box span:nth-child(2):before, 
-.unique-box span:nth-child(4):before {
-    content: ''; /* Leeg pseudo-element voor animatie */
-    position: absolute; /* Absoluut gepositioneerd binnen de span */
-    width: 100%; /* Laat de animatie de volledige breedte innemen */
-    height: 100%; 
-    background: #4dff; /* Groene kleur */
-    animation: animateVertical 4s linear infinite; /* Continue animatie voor verticale lijnen */
-}
-
-/* ===== Keyframes voor horizontale lijnen ===== */
-@keyframes animateHorizontal {
-    0%, 100% { transform: scaleX(0); } /* Start en eindig smal */
-    50% { transform: scaleX(1); } /* Breid uit tot volledige breedte */
-}
-
-/* ===== Keyframes voor verticale lijnen ===== */
-@keyframes animateVertical {
-    0%, 100% { transform: scaleY(0); } /* Start en eindig smal */
-    50% { transform: scaleY(1); } /* Breid uit tot volledige hoogte */
-}
-
-
-/* ===== Styles voor de buttons ===== */
-
-/* Container voor de buttons */
-.button-container {
-    display: flex; /* Plaatst de knoppen naast elkaar in een rij */
-    justify-content: center; /* Centreert de knoppen horizontaal */
-    align-items: center; /* Centreert de knoppen verticaal (indien nodig) */
-    gap: 1rem; /* Ruimte tussen de knoppen */
-    flex-wrap: wrap; /* Laat de knoppen naar een nieuwe regel verplaatsen als er niet genoeg ruimte is */
-    padding: 1rem; /* Voegt padding toe rond de knoppen voor extra ruimte */
-}
-
-/* Algemene stijl voor de grote knoppen */
-.big-button {
-    padding: clamp(0.5em, 1vw, 1em) clamp(1em, 2vw, 2em); /* Flexibele padding */
-    width: clamp(8rem, 20vw, 12rem); /* Flexibele breedte die zich aanpast aan de schermgrootte */
-    height: clamp(2.5rem, 5vw, 3.5rem); /* Flexibele hoogte voor consistentie */
-    border: 0.15em solid rgb(106, 163, 173); /* Rand met een vaste dikte en kleur */
-    border-radius: 1em; /* Afgeronde hoeken */
-    background-color: #4dff; /* Achtergrondkleur */
-    font-weight: 700; /* Vetgedrukte tekst */
-    text-transform: uppercase; /* Hoofdletters */
-    font-family: "Poppins", sans-serif; /* Lettertype */
-    transform-style: preserve-3d; /* 3D-transformaties behouden */
-    transition: all 175ms cubic-bezier(0, 0, 1, 1); /* Vloeiende overgangen */
-    position: relative; /* Relatieve positionering */
-    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.3); /* Schaduw onder de knop */
-    font-size: clamp(0.8rem, 1.5vw, 1.2rem); /* Flexibele lettergrootte */
-    color: rgb(0, 128, 255);
-    text-shadow: 
-        0 0 0.3em #0ff, 
-        0 0 0.6em #0ff, 
-        0 0 0.9em #0ff, 
-        0 0 1.2em #00bfff, 
-        0 0 1.5em #00bfff, 
-        0 0 1.8em #00bfff, 
-        0 0 2.1em #1e90ff, 
-        0 0 2.5em #1e90ff;
-    
-    }
-
-
-/* Pseudo-element voor het 3D-effect */
-.big-button::before {
-    content: ''; /* Pseudo-element zonder inhoud, maar zorgt voor een visueel effect */
-    position: absolute; /* Absoluut gepositioneerd ten opzichte van de knop */
-    top: 0.5em; /* Iets verschoven naar beneden voor een 3D-effect */
-    left: 0.5em; /* Iets verschoven naar rechts voor een 3D-effect */
-    width: 100%; /* Zelfde breedte als de knop */
-    height: 100%; /* Zelfde hoogte als de knop */
-    background-color: #84dbe1; /* Kleur voor het pseudo-element om diepte te suggereren */
-    border-radius: 1em; /* Zelfde afgeronde hoeken als de knop voor consistentie */
-    z-index: -1; /* Plaatst het pseudo-element achter de knop voor een 3D-effect */
-    transition: all 175ms cubic-bezier(0, 0, 1, 1); /* Vloeiende overgang bij hover of klik */
-}
-
-/* Hover-effect voor de knoppen */
-.big-button:hover {
-    transform: translate(-0.2em, -0.2em); /* Laat de knop omhoog komen voor een 3D-effect */
-}
-
-.big-button:hover::before {
-    top: 0.7em; /* Verplaatst het pseudo-element om de schaduwpositie aan te passen */
-    left: 0.7em; /* Verplaatst het pseudo-element om de schaduwpositie aan te passen */
-}
-
-/* Specifieke kleuren voor elke knop */
-.button-container button:nth-child(1) {
-    background-color: #6e78ff; /* Rode achtergrondkleur voor de eerste knop */
-}
-
-.button-container button:nth-child(2) {
-    background-color: #0b87db; /* Groene achtergrondkleur voor de tweede knop */
-}
-
-.button-container button:nth-child(3) {
-    background-color: #20569c; /* Blauwe achtergrondkleur voor de derde knop */
-}
-
-
-
-/* ===== Responsieve aanpassingen ===== */
-
-/* Voor kleinere schermen (mobiele apparaten) */
-@media (max-width: 480px) {
-    .big-button {
-        padding: 0.8em 1.5em; /* Verminderde padding voor kleinere knoppen op kleine schermen */
-        font-size: 14px; /* Kleiner lettertype voor betere leesbaarheid op mobiele apparaten */
-    }
-    
-    .button-container {
-        gap: 0.5rem; /* Vermindert de ruimte tussen de knoppen op kleinere schermen */
-        padding: 0.5rem; /* Vermindert de padding rond de container */
-    }
-}
-
-
-
-.container-wrapper {
-	display: flex; /* Zet containers naast elkaar */
-	justify-content: center; /* Centreert de containers horizontaal */
-	align-items: center; /* Centreert de inhoud verticaal */
-	gap: 1rem; /* Ruimte tussen de containers */
-	flex-wrap: wrap; /* Laat containers naar een nieuwe regel gaan op kleinere schermen */
-}
-
-.quote-container {
-	position: relative;
-	width: clamp(15rem, 20vw, 18rem); /* Responsieve breedte */
-	height: 16rem; /* Vaste hoogte om containers gelijk te maken */
-	padding: 1rem;
-	background-color: transparent;
-	border-radius: 1rem;
-	overflow: hidden;
-	box-shadow: 0 0 1rem rgba(0, 153, 255, 0.5); /* Neon blauwe gloed */
-	display: flex; /* Zorgt voor uitlijning van de inhoud */
-	flex-direction: column; /* Zet de inhoud onder elkaar */
-	justify-content: center; /* Centreert de inhoud verticaal */
-	align-items: center; /* Centreert de inhoud horizontaal */
-	animation: colorChange 5s infinite alternate; /* Voert de kleurverandering uit */
-    text-align: center; /* Centreert de tekst in de container */
-
-}
-
-
-@keyframes colorChange {
-    0% { box-shadow: 0 0 1rem rgba(0, 153, 255, 0.5); }
-    25% { box-shadow: 0 0 1rem rgba(0, 255, 153, 0.5); }
-    50% { box-shadow: 0 0 1rem rgba(99, 226, 255, 0.5); }
-    75% { box-shadow: 0 0 1rem rgba(76, 8, 73, 0.5); }
-    100% { box-shadow: 0 0 1rem rgba(61, 196, 234, 0.5); }
-}
-
-
-
-.quote-container p,
-.quote-container h4 {
-    color: #ffffff; /* Kleur voor de tekst in h2, p en h4 */
-    margin: 0; /* Verwijdert marges zodat we deze handmatig kunnen toevoegen */
-}
-
-.quote-container h2 {
-    font-size: clamp(0.75rem, 1vw + 0.5rem, 1rem); /* Dynamische grootte tussen 12px en 16px */
-    margin-bottom: 0.5rem; /* Ruimte onder h2 */
-}
-
-.quote-container p {
-    font-size: clamp(0.75rem, 1vw + 0.5rem, 1rem); /* Dynamische grootte tussen 12px en 16px */
-    line-height: 1.5;
-    margin-bottom: 1rem; /* Ruimte onder de paragraaf */
-}
-
-.quote-container h4,h2 {
-    font-size: clamp(0.75rem, 1vw + 0.5rem, 1rem); /* Dynamische grootte tussen 12px en 16px */
-    color: #00c2cb;
-    animation: colorChange 5s infinite alternate; /* Voert de kleurverandering uit */
-    margin-top: 0.5rem; /* Ruimte boven h4 */
-}
-
-
-
-/* ===== moving Container ===== */
-.moving-container {
-    overflow: hidden; /* Verbergt de inhoud die buiten de container valt */
-    white-space: nowrap; /* Zorgt ervoor dat de tekst niet afbreekt en in één regel blijft */
-    width: 100%; /* Breidt de container uit tot de volledige breedte van de pagina */
-    color: #fff; /* Zet de tekstkleur in de container op wit */
-    padding: 1rem 0; /* Voegt verticale ruimte boven en onder de tekst toe */
-    left: 0; /* Positioneert de container aan de linkerkant (alleen nuttig als het gepositioneerd is) */
-}
-
-/* ===== moving Text ===== */
-.moving-text {
-    display: inline-block; /* Zorgt ervoor dat het element naast andere elementen blijft */
-    padding-left: 100%; /* Begin de tekst buiten beeld, helemaal rechts */
-    animation: moving 15s linear infinite; /* Past een continue horizontale verschuivingsanimatie toe */
-    font-size: 1rem; /* Zet de tekstgrootte op 1rem */
-}
-
-/* ===== Keyframes voor de Marquee Animatie ===== */
-@keyframes moving {
-    0% {
-        transform: translateX(0); /* Startpositie van de tekst (aan de linkerkant van de container) */
-    }
-    100% {
-        transform: translateX(-100%); /* Eindpositie van de tekst (verschuift volledig naar links) */
-    }
-}
-
-
-
-/* ===== Back to Home Button ===== */
-.back-to-home {
+  /* Stijlen voor de logo-tekst */
+  .logo-text {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.1em; 
+    font-size: 2.5rem; 
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  
+  .welcome-text {
+    font-size: 1.6rem;
+    text-align: center; 
+    color: #ffe6d6; 
+    margin-bottom: 50px; 
+    line-height: 1.5; 
+    font-weight: bold;
+  }
+  
+  .welcome-text:hover{
+    color:#ff55a3;
+  }
+  /* Grote tekst met subtiele animaties */
+  .key {
+    font-size: 10vw; /* Dynamische lettergrootte */
     display: inline-block;
-    padding: 0.4rem 1rem; /* Kleinere padding voor een compacte knop */
-    font-size: 0.9rem; /* Kleinere tekstgrootte */
-    color: #fff; /* Witte tekstkleur */
-    background-color: #5dade2;/* Blauwe achtergrondkleur passend bij het ontwerp */
-    text-decoration: none; /* Verwijdert onderstreping van de link */
-    font-weight: 600; /* Iets dikker lettertype */
-    border-radius: 5px; /* Afgeronde hoeken voor een moderne look */
-    position: absolute; /* Plaatst de knop bovenaan de pagina */
-    top: 1rem; /* Afstand vanaf de bovenkant van de pagina */
-    left: 1rem; /* Afstand vanaf de linkerkant van de pagina */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Overgangseffect voor achtergrond en schaduw */
-    box-shadow: 0 2px 4px rgba(30, 144, 255, 0.4); /* Subtiele schaduw om de knop diepte te geven */
-    z-index: 100; /* Zorgt ervoor dat de knop boven andere elementen blijft */
-}
-
-/* Hover-effect voor de knop */
-.back-to-home:hover {
-    background-color: #1e90ff;/* Lichtere blauw tint bij hover */
-    box-shadow: 0 4px 8px rgba(30, 144, 255, 0.6); /* Vergrote schaduw bij hover */
-    transform: translateY(-1px); /* Lichte beweging omhoog bij hover */
-}
-
+    transition: transform 0.3s, color 0.3s;
+    color: #f5cab5;
+    text-transform: uppercase;
+  }
+  
+  /* Hover-effect voor grote tekst */
+  .logo-text .key:hover {
+    transform: scale(1.1); /* Vergroot de tekst tot 110% van de originele grootte bij hover */
+    color: #ff55a3; 
+    transition: transform 0.3s, color 0.3s; /* Soepele overgang */
+  }
+  
+  /* Animaties voor de grote tekst */
+  @keyframes pressDown1 {
+    30%, 40%, 100% {
+      transform: translateY(0); /* Geen verschuiving */
+    }
+    35% {
+      transform: translateY(10px); /* Verschuiving omlaag */
+    }
+  }
+  
+  @keyframes pressDown2 {
+    70%, 80%, 100% {
+      transform: translateY(0); /* Geen verschuiving */
+    }
+    75% {
+      transform: translateY(10px); /* Verschuiving omlaag */
+    }
+  }
+  
+  /* Pas animaties toe op de tekst op basis van hun volgorde */
+  .key:nth-child(odd) {
+    animation: pressDown1 2.5s infinite; /* Herhaalde animatie voor oneven letters */
+  }
+  
+  .key:nth-child(even) {
+    animation: pressDown2 3s infinite; /* Herhaalde animatie voor even letters */
+  }
+  
+  /* Extra ruimte tussen specifieke letters */
+  .key:nth-child(6), .key:nth-child(9) {
+    margin-right: 0.2em; /* Maakt de ruimte tussen woorden beter zichtbaar */
+  }
+  
+  /* Navigatiebalk stijlen */
+  .navbar {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; /* Volledige breedte */
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding: 10px 0; /* Ruimte aan boven- en onderkant */
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000; /* Zorgt dat de navbar altijd zichtbaar is boven andere content */
+  }
+  
+  /* Navigatielinks */
+  .nav-links {
+    display: flex; 
+    gap: 30px; 
+    justify-content: center;
+    align-items: center; 
+  }
+  
+  /* Navigatielinks (individuele links) */
+  .nav-links a {
+    text-decoration: none; /* Verwijdert onderstreping */
+    font-weight: bold; 
+    text-transform: uppercase; /* Hoofdletters */
+    font-size: 1rem; 
+    color: #f5cab5; 
+    position: relative; /* Voor underline-effect */
+    transition: color 0.3s; /* Gladde overgang bij hover */
+  }
+  
+  /* Hover-effect voor navigatielinks */
+  .nav-links a:hover {
+    color: #ff7f50; /* Verander kleur bij hover */
+  }
+  
+  
+  .nav-links a:hover {
+    color: #ff55a3;  
+  }
+  
+  /* Container voor knoppen */
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  /* Knoppenstijl */
+  .button {
+    position: relative;
+    padding: 12px 24px;
+    color: #ffe6d6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    background: none;
+    border: 2px solid #f5cab5; 
+    transition: 0.3s;
+  }
+  
+  .button:hover {
+    transform: scale(1.05);
+    color: #ff55a3; 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 85, 163, 0.1);
+  }
+  
+  
+  .image{
+    position: absolute;
+    right: 0;
+    left: 0;
+    text-align: center;
+   bottom:0%;
+    z-index: -1;
+  }
 
