@@ -1,171 +1,189 @@
 /* Algemene stijlen voor de pagina */
 body {
-    background-color: #101013;
-    color: #fff; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    margin: 0;
-    overflow: hidden; /* Verwijder scrollbars */
+  background-color: #101013;
+  color: #fff; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  margin: 0;
+  overflow: hidden; /* Verwijder scrollbars */
+}
+
+/* Stijlen voor de logo-tekst */
+.logo-text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.1em; 
+  font-size: 2.5rem; 
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 50px; /* Meer ademruimte onder de logo-text */
+}
+
+.welcome-text {
+  font-size: 1.6rem;
+  text-align: center; 
+  color: #ffe6d6; 
+  margin-bottom: 60px; /* Extra ruimte onder de welkomsttekst */
+  line-height: 1.5; 
+  font-weight: bold;
+}
+
+.welcome-text:hover {
+  color: #ff55a3;
+}
+
+/* Grote tekst met subtiele animaties */
+.key {
+  font-size: 10vw; /* Dynamische lettergrootte */
+  display: inline-block;
+  transition: transform 0.3s, color 0.3s;
+  color: #f5cab5;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ff55a3, #ffe6d6, #f5cab5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Subtiel glanseffect */
+.key::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-30deg);
+  animation: shine 2s infinite;
+}
+
+
+/* Animaties voor de grote tekst */
+@keyframes pressDown1 {
+  30%, 40%, 100% {
+    transform: translateY(0); /* Geen verschuiving */
   }
-  
-  /* Stijlen voor de logo-tekst */
-  .logo-text {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.1em; 
-    font-size: 2.5rem; 
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 0;
+  35% {
+    transform: translateY(10px); /* Verschuiving omlaag */
   }
-  
-  .welcome-text {
-    font-size: 1.6rem;
-    text-align: center; 
-    color: #ffe6d6; 
-    margin-bottom: 50px; 
-    line-height: 1.5; 
-    font-weight: bold;
+}
+
+@keyframes pressDown2 {
+  70%, 80%, 100% {
+    transform: translateY(0); /* Geen verschuiving */
   }
-  
-  .welcome-text:hover{
-    color:#ff55a3;
+  75% {
+    transform: translateY(10px); /* Verschuiving omlaag */
   }
-  /* Grote tekst met subtiele animaties */
-  .key {
-    font-size: 10vw; /* Dynamische lettergrootte */
-    display: inline-block;
-    transition: transform 0.3s, color 0.3s;
-    color: #f5cab5;
-    text-transform: uppercase;
-  }
-  
-  /* Hover-effect voor grote tekst */
-  .logo-text .key:hover {
-    transform: scale(1.1); /* Vergroot de tekst tot 110% van de originele grootte bij hover */
-    color: #ff55a3; 
-    transition: transform 0.3s, color 0.3s; /* Soepele overgang */
-  }
-  
-  /* Animaties voor de grote tekst */
-  @keyframes pressDown1 {
-    30%, 40%, 100% {
-      transform: translateY(0); /* Geen verschuiving */
-    }
-    35% {
-      transform: translateY(10px); /* Verschuiving omlaag */
-    }
-  }
-  
-  @keyframes pressDown2 {
-    70%, 80%, 100% {
-      transform: translateY(0); /* Geen verschuiving */
-    }
-    75% {
-      transform: translateY(10px); /* Verschuiving omlaag */
-    }
-  }
-  
-  /* Pas animaties toe op de tekst op basis van hun volgorde */
-  .key:nth-child(odd) {
-    animation: pressDown1 2.5s infinite; /* Herhaalde animatie voor oneven letters */
-  }
-  
-  .key:nth-child(even) {
-    animation: pressDown2 3s infinite; /* Herhaalde animatie voor even letters */
-  }
-  
-  /* Extra ruimte tussen specifieke letters */
-  .key:nth-child(6), .key:nth-child(9) {
-    margin-right: 0.2em; /* Maakt de ruimte tussen woorden beter zichtbaar */
-  }
-  
-  /* Navigatiebalk stijlen */
-  .navbar {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%; /* Volledige breedte */
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    padding: 10px 0; /* Ruimte aan boven- en onderkant */
-    box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000; /* Zorgt dat de navbar altijd zichtbaar is boven andere content */
-  }
-  
-  /* Navigatielinks */
-  .nav-links {
-    display: flex; 
-    gap: 30px; 
-    justify-content: center;
-    align-items: center; 
-  }
-  
-  /* Navigatielinks (individuele links) */
-  .nav-links a {
-    text-decoration: none; /* Verwijdert onderstreping */
-    font-weight: bold; 
-    text-transform: uppercase; /* Hoofdletters */
-    font-size: 1rem; 
-    color: #f5cab5; 
-    position: relative; /* Voor underline-effect */
-    transition: color 0.3s; /* Gladde overgang bij hover */
-  }
-  
-  /* Hover-effect voor navigatielinks */
-  .nav-links a:hover {
-    color: #ff7f50; /* Verander kleur bij hover */
-  }
-  
-  
-  .nav-links a:hover {
-    color: #ff55a3;  
-  }
-  
-  /* Container voor knoppen */
-  .buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
-  }
-  
-  /* Knoppenstijl */
-  .button {
-    position: relative;
-    padding: 12px 24px;
-    color: #ffe6d6;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    background: none;
-    border: 2px solid #f5cab5; 
-    transition: 0.3s;
-  }
-  
-  .button:hover {
-    transform: scale(1.05);
-    color: #ff55a3; 
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-    background-color: rgba(255, 85, 163, 0.1);
-  }
-  
-  
-  .image{
-    position: absolute;
-    right: 0;
-    left: 0;
-    text-align: center;
-   bottom:0%;
-    z-index: -1;
-  }
+}
+
+/* Pas animaties toe op de tekst op basis van hun volgorde */
+.key:nth-child(odd) {
+  animation: pressDown1 2.5s infinite; /* Herhaalde animatie voor oneven letters */
+}
+
+.key:nth-child(even) {
+  animation: pressDown2 3s infinite; /* Herhaalde animatie voor even letters */
+}
+
+/* Extra ruimte tussen specifieke letters */
+.key:nth-child(6), .key:nth-child(9) {
+  margin-right: 0.2em; /* Maakt de ruimte tussen woorden beter zichtbaar */
+}
+
+/* Navigatiebalk stijlen */
+.navbar {
+  position: fixed; 
+  background-color: rgba(0, 0, 0, 0.85); /* Donkere overlay met een beetje transparantie */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtiele schaduw onder de navigatiebalk */
+  top: 0;
+  left: 0;
+  width: 100%; /* Volledige breedte */
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: 10px 0; /* Ruimte aan boven- en onderkant */
+  box-sizing: border-box;
+  z-index: 1000; /* Zorgt dat de navbar altijd zichtbaar is boven andere content */
+}
+
+/* Navigatielinks */
+.nav-links {
+  display: flex; 
+  gap: 30px; 
+  justify-content: center;
+  align-items: center; 
+}
+
+/* Navigatielinks (individuele links) */
+.nav-links a {
+  text-decoration: none; /* Verwijdert onderstreping */
+  font-weight: bold; 
+  text-transform: uppercase; /* Hoofdletters */
+  font-size: 1rem; 
+  color: #f5cab5; 
+  position: relative; /* Voor underline-effect */
+  transition: color 0.3s; /* Gladde overgang bij hover */
+}
+
+/* Hover-effect voor navigatielinks */
+.nav-links a:hover {
+  color: #ff55a3;  
+}
+
+/* Container voor knoppen */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+/* Knoppenstijl */
+.button {
+  position: relative;
+  padding: 14px 28px; /* Iets grotere knoppen voor een betere zichtbaarheid */
+  color: #ffe6d6;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  background: none;
+  border: 2px solid #f5cab5; 
+  border-radius: 8px; /* Zachtere hoeken voor de knoppen */
+  background-color: rgba(255, 85, 163, 0.1); /* Zachte pastelachtige achtergrondkleur */
+  transition: all 0.3s ease; /* Soepelere transities bij hover */
+}
+
+.button:hover {
+  transform: scale(1.05);
+  color: #ff55a3; 
+  background-color: rgba(255, 85, 163, 0.3); /* Iets sterker effect bij hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Afbeelding stijl */
+.image {
+  position: absolute;
+  right: 0;
+  left: 0;
+  text-align: center;
+  bottom: 0%;
+  z-index: -1;
+  filter: drop-shadow(0 4px 8px rgba(255, 85, 163, 0.3)); /* Subtiele schaduw met een roze tint */
+}
+
+
+
+
 
