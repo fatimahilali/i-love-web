@@ -103,9 +103,7 @@ body {
 /* Navigatiebalk stijlen */
 .navbar {
   position: fixed; 
-  background-color: rgba(0, 0, 0, 0.85); /* Donkere overlay met een beetje transparantie */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtiele schaduw onder de navigatiebalk */
-  top: 0;
+  top: 5%;
   left: 0;
   width: 100%; /* Volledige breedte */
   display: flex;
