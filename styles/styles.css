@@ -37,21 +37,29 @@ body {
 .welcome-text:hover {
   color: #ff55a3;
 }
+/* Stijl voor het woord 'portfolio' */
+.highlight {
+  font-weight: bold; /* Optioneel: maak het vetgedrukt */
+  background: linear-gradient(90deg, #ff55a3, #ffe6d6); /* Lineaire gradient als achtergrond */
+  -webkit-background-clip: text; /* Clip de achtergrond naar de tekstvorm */
+  -webkit-text-fill-color: transparent; /* Maak de tekst zelf transparant */
+}
+
 
 /* Grote tekst met subtiele animaties */
 .key {
   font-size: 10vw; /* Dynamische lettergrootte */
   display: inline-block;
   transition: transform 0.3s, color 0.3s;
-  color: #f5cab5;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #ff55a3, #ffe6d6, #f5cab5);
+  background: linear-gradient(90deg, #ff55a3, #ffe6d6, #f5cab5, #ffe6d6); /* Meerkleurige gradient */
+  background-size: 200%; /* Grotere achtergrond om scroll-effect zichtbaar te maken */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
   overflow: hidden;
+  animation: scrollGradient 5s linear infinite; /* Scroll-animatie toegevoegd */
 }
-
 
 /* Subtiel glanseffect */
 .key::after {
@@ -66,6 +74,15 @@ body {
   animation: shine 2s infinite;
 }
 
+/* Animatie voor het scrollen van de gradient */
+@keyframes scrollGradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
 
 /* Animaties voor de grote tekst */
 @keyframes pressDown1 {
@@ -88,17 +105,18 @@ body {
 
 /* Pas animaties toe op de tekst op basis van hun volgorde */
 .key:nth-child(odd) {
-  animation: pressDown1 2.5s infinite; /* Herhaalde animatie voor oneven letters */
+  animation: pressDown1 2.5s infinite, scrollGradient 5s linear infinite; /* Combineer scroll- en druk-animatie */
 }
 
 .key:nth-child(even) {
-  animation: pressDown2 3s infinite; /* Herhaalde animatie voor even letters */
+  animation: pressDown2 3s infinite, scrollGradient 5s linear infinite; /* Combineer scroll- en druk-animatie */
 }
 
 /* Extra ruimte tussen specifieke letters */
 .key:nth-child(6), .key:nth-child(9) {
   margin-right: 0.2em; /* Maakt de ruimte tussen woorden beter zichtbaar */
 }
+
 
 /* Navigatiebalk stijlen */
 .navbar {
