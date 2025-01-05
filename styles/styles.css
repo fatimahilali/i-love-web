@@ -138,6 +138,13 @@ body {
   color: #ff55a3;  
 }
 
+/* Voeg een punt toe na elke link behalve de laatste */
+.nav-links a:not(:last-child)::after {
+  content: "•"; /* De punt */
+  color: #ff55a3;  /* Kleur van de punt */
+  margin-left: 10px; /* Ruimte tussen de link en de punt */
+  font-size: 1.2rem; /* Iets grotere punt */
+}
 /* Container voor knoppen */
 .buttons-container {
   display: flex;
