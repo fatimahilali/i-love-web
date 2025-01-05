@@ -36,7 +36,10 @@ body {
 
 .welcome-text:hover {
   color: #ff55a3;
+
 }
+
+
 /* Stijl voor het woord 'portfolio' */
 .highlight {
   font-weight: bold; /* Optioneel: maak het vetgedrukt */
@@ -45,6 +48,12 @@ body {
   -webkit-text-fill-color: transparent; /* Maak de tekst zelf transparant */
 }
 
+/* Hover-effect: voor het woord 'portfolio'*/
+.highlight:hover {
+  background: none; /* Verwijder de gradient */
+  -webkit-text-fill-color: #ffe6d6; /* Effen kleur bij hover */
+  transition: all 0.3s ease; /* Soepel overgangseffect */
+}
 
 /* Grote tekst met subtiele animaties */
 .key {
