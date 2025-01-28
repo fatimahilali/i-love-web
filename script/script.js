@@ -1,3 +1,12 @@
+
+/**
+ * Author: @ Fatima El Hilali
+ * Description: Mini course on GSAP animations
+ * @see GSAP Documentation: https://gsap.com/resources
+ * YouTube tutorial link: [https://www.youtube.com/watch?v=m6PDUIF24v4]
+ */
+
+
 // Creëer een GSAP-timeline met standaardinstellingen
 const timeline = gsap.timeline({ defaults: { duration: 2 } }); // Verhoog de standaardduur naar 2 seconden
 
