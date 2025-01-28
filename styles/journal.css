@@ -1,307 +1,39 @@
-
-/*
-Auteur: Fatima El Hilali
-Beschrijving: CSS-stijlen voor "Journal" webpagina die heb ik voor nu uitgeschakeld de js code!
-*/
-
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'); /* Laad het Montserrat-lettertype in verschillende diktes */
-
-/* Reset alle marges, padding en zet de box-sizing op border-box voor consistente layout */
 * {
-    margin: 0; /* Zet de marge van alle elementen op 0 */
-    padding: 0; /* Zet de padding van alle elementen op 0 */
-    box-sizing: border-box; /* Zorgt ervoor dat de padding en border bij de totale breedte en hoogte worden opgeteld */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Basis body styling */
+
 body {
-    font-family: 'Montserrat', sans-serif; /* Stelt het lettertype van de pagina in op Montserrat */
-    margin: 0; /* Verwijder standaard marges van het body-element */
-    padding: 0; /* Verwijder standaard padding van het body-element */
-    overflow-y: auto; /* Zorg ervoor dat de verticale scrollbalk wordt weergegeven indien nodig */
-    background: pink; /* Stelt de achtergrondkleur van de body in op roze */
+    font-family: 'Montserrat', sans-serif;
+    background: pink;
 }
 
-/* Achtergrondanimaties */
-.background-container {
-    position: fixed; /* Maak de achtergrond vast op het scherm, zodat deze niet scrolt */
-    top: 0; /* Plaats de container bovenaan het scherm */
-    left: 0; /* Plaats de container aan de linkerkant van het scherm */
-    bottom: 0; /* Laat de container de volledige hoogte bedekken */
-    right: 0; /* Laat de container de volledige breedte bedekken */
-    z-index: -1; /* Plaats de achtergrond achter alle andere elementen */
-}
-
-.stars {
-    background: rgb(0, 0, 0) url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat; /* Voeg een herhalende sterrenachtergrond toe */
-    position: absolute; /* Positioneer het element absoluut binnen de container */
-    top: 0; /* Plaats de sterrenachtergrond bovenaan de container */
-    bottom: 0; /* Laat de sterrenachtergrond de volledige hoogte bedekken */
-    left: 0; /* Laat de sterrenachtergrond de volledige breedte bedekken */
-    right: 0; /* Laat de sterrenachtergrond de volledige breedte bedekken */
-    z-index: 0; /* Plaats de sterrenlaag onder andere achtergrondlagen */
-}
-
-.twinkling {
-    width: 200%; /* Breidt de breedte uit voor een scrollende animatie */
-    height: 100%; /* Laat de hoogte gelijk aan de containerhoogte */
-    background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat-x; /* Voeg een transparante twinkling-achtergrond toe */
-    background-size: contain; /* Zorgt ervoor dat de afbeelding zich uitstrekt om te passen binnen de container */
-    position: absolute; /* Positioneer het element absoluut binnen de container */
-    top: 0; /* Plaats de twinkling-achtergrond bovenaan */
-    bottom: 0; /* Laat de twinkling-achtergrond de volledige hoogte bedekken */
-    z-index: 1; /* Plaats de twinkling-laag boven de sterrenlaag */
-    animation: scroll-background 15s linear infinite; /* Animering voor het scrollen van de achtergrond naar links */
-}
-
-@keyframes scroll-background {
-    from {
-        transform: translateX(0); /* Startpositie van de achtergrond */
-    }
-    to { 
-        transform: translateX(-50%); /* Eindpositie, verschuift naar links */
-    }
-}
-
-/* Header en journal styling */
-header {
-    color: #ffffff; /* Stelt de tekstkleur van de header in op wit */
-    padding: 1.25rem; /* Voeg padding toe rond de header */
-    text-align: center; /* Centreer de tekst in de header */
-    position: relative; /* Positioneer de header relatief, zodat deze kan overlappen met andere elementen */
-    z-index: 10; /* Plaats de header boven andere elementen */
-}
-
-.journal-container {
-    margin: 1.25rem auto; /* Voeg marge boven en onder toe en centreer de container horizontaal */
-    max-width: 50rem; /* Stel de maximale breedte van de container in */
-    position: relative; /* Positioneer de container relatief voor overlappende elementen */
-    z-index: 10; /* Zorg ervoor dat de container boven achtergrondlagen ligt */
-}
-
-.month-section {
-    margin-bottom: 0.625rem; /* Voeg ruimte toe onder elke maandsectie */
-}
-
-/* Neon stijl voor de .collapsible knoppen */
-.collapsible {
-    font-size: clamp(1rem, 3vw, 1.5rem); /* Pas de fontgrootte aan op basis van schermgrootte */
-    display: inline-block; /* Toon het element in blokvorm maar inline */
-    cursor: pointer; /* Geef een aanwijzer aan als de muis over het element zweeft */
-    color: #ff00ff; /* Stel de tekstkleur in op fel magenta */
-    border: 0.25rem solid #ff00ff; /* Voeg een dikke magenta rand toe */
-    padding: 0.25rem 1rem; /* Voeg padding binnen de knop toe */
-    border-radius: 0.25rem; /* Rond de hoeken van de knop af */
-    text-shadow: 0 0 0.125rem rgba(255, 255, 255, 0.55), 0 0 0.5rem #ff00ff; /* Voeg een lichte en magenta gloed toe aan de tekst */
-    box-shadow: inset 0 0 0.5rem #ff00ff, 0 0 0.5rem #ff00ff; /* Voeg een binnen- en buitengloed toe aan de knop */
-    position: relative; /* Positioneer relatief voor overlappende gloed-effecten */
-    background-color: transparent; /* Maak de achtergrondkleur doorzichtig */
-    width: 100%; /* Maak de knop de volledige breedte van het container-element */
-    text-align: left; /* Lijn de tekst aan de linkerkant uit */
-    outline: none; /* Verwijder de standaard focusrand */
-    transition: background-color 0.3s ease; /* Voeg een soepele overgang toe voor de achtergrondkleur */
-}
-
-.collapsible::before, .collapsible::after {
-    content: ""; /* Pseudo-elementen om extra gloed toe te voegen */
-    position: absolute; /* Positioneer absoluut binnen de knop */
-    width: 100%; /* Breedte van het pseudo-element gelijk aan de knop */
-    height: 100%; /* Hoogte van het pseudo-element gelijk aan de knop */
-}
-
-.collapsible::before {
-    background: #ff00ff; /* Magenta achtergrondkleur voor de onderste gloed */
-    top: 120%; /* Positioneer onder de knop */
-    transform: perspective(1.2rem) rotateX(40deg) scale(1.5, 0.5); /* Creëer een driedimensionaal effect */
-    filter: blur(1.15rem); /* Voeg een wazig effect toe */
-    opacity: 0.7; /* Maak de gloed iets transparant */
-    transition: transform 0.5s linear; /* Voeg een overgang toe voor het transform-effect */
-}
-
-.collapsible::after {
-    box-shadow: 0 0 4rem 0.6rem #ff00ff, 0 0 1rem 0.2rem #ffffff; /* Voeg een gloed toe rond de knop */
-    opacity: 0; /* Start met volledige transparantie */
-    background: #ff00ff; /* Magenta achtergrond voor de gloed */
-    z-index: -1; /* Plaats het pseudo-element onder de knop */
-    transition: opacity 0.5s linear; /* Voeg een soepele overgang toe voor de transparantie */
-}
-
-.collapsible:hover, .collapsible:focus {
-    color: #fdf9f9; /* Wijzig de tekstkleur bij hover of focus */
-    text-shadow: none; /* Verwijder de tekstgloed */
-}
-
-.collapsible:hover::before {
-    opacity: 1; /* Verhoog de transparantie bij hover */
-    transform: perspective(1rem) rotateX(40deg) scale(1.5, 0.6); /* Pas de schaal aan voor een groter gloed-effect */
-}
-
-.collapsible:hover::after {
-    opacity: 1; /* Toon de gloed bij hover */
-}
-
-.collapsible.active, .collapsible:hover {
-    background-color: #1f1c1e; /* Verander de achtergrondkleur bij hover of actieve status */
-}
-
-.content {
-    display: none; /* Verberg de inhoud standaard */
-    padding: 1rem; /* Voeg padding rond de inhoud toe */
-    color: #ffffff; /* Maak de tekst wit */
-}
-
-.entry {
-    margin-bottom: 1rem; /* Voeg ruimte toe onder elke entry */
-}
-
-.entry h3 {
-    margin: 0.3rem 0; /* Voeg verticale marges toe aan de titel */
-    color: #ffffff; /* Stel de tekstkleur in op wit */
-}
-
-
-/* Centering container met achtergrond */
-.centered-container {
-    height: 100vh; /* Vul de volledige schermhoogte */
-    display: grid; /* Gebruik grid layout om het midden te centreren */
-    place-content: center; /* Centreer de inhoud verticaal en horizontaal */
-    background: pink; /* Voeg een roze achtergrond toe */
-}
-
-h2 {
-    color: #ff00ff; /* Zet de kleur van H2-elementen op magenta */
-}
-
-a {
-    color: #ff00ff; /* Zet de linkkleur op magenta */
-    text-decoration: none; /* Verwijder de standaard onderstreping */
-}
-
-a:hover {
-    color: #00ff00; /* Wijzig de kleur bij hover naar groen */
-    text-decoration: underline; /* Voeg een onderstreping toe bij hover */
-}
-
-.entry h3, .month-section .content h3 {
-    color: #00ff00; /* Zet de kopteksten op groen */
-}
-
-/* Container styling */
-.image-container {
-    display: flex; /* Gebruik flexbox om afbeeldingen uit te lijnen */
-    justify-content: center; /* Centreer de afbeeldingen horizontaal */
-    gap: clamp(0.5rem, 2vw, 1rem); /* Stel een variabele ruimte in tussen afbeeldingen */
-    overflow-x: auto; /* Voeg horizontale scroll toe voor kleine schermen */
-    padding: 0; /* Verwijder standaard padding */
-}
-
-.image-container img {
-    width: clamp(6rem, 20vw, 10rem); /* Maak de breedte responsief */
-    height: clamp(6rem, 20vw, 10rem); /* Maak de hoogte responsief */
-    object-fit: cover; /* Zorg dat de afbeelding de container vult */
-    border-radius: clamp(0.2rem, 0.5vw, 0.5rem); /* Maak de randen rond */
-    margin: 0; /* Verwijder standaard marges */
-    display: block; /* Zorg dat de afbeelding als blokelement wordt weergegeven */
-}
-
-/* Mobiele weergave voor afbeelding container */
-@media (max-width: 40rem) {
-    .image-container {
-        flex-direction: column; /* Zet afbeeldingen in een kolom */
-        align-items: center; /* Centreer afbeeldingen horizontaal */
-    }
-    .image-container img {
-        width: clamp(6rem, 50vw, 8rem); /* Pas de breedte aan voor kleine schermen */
-        height: auto; /* Zorg dat de hoogte automatisch past */
-    }
-}
-
-/* Button styling */
-.journal-button {
-    position: absolute; /* Positioneer de knop absoluut binnen de container */
-    top: 90vh; /* Plaats de knop aan de onderkant van de viewport */
-    left: 50%; /* Plaats de knop horizontaal gecentreerd */
-    transform: translate(-50%, -50%); /* Centreer de knop volledig */
-    padding: clamp(0.8rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2rem); /* Responsieve padding */
-    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Responsieve fontgrootte */
-    color: rgb(255, 0, 195); /* Tekstkleur in felroze */
-    border: 0.1rem solid rgba(243, 10, 154, 0.5); /* Voeg een lichte rand toe */
-    border-radius: 0.2rem; /* Rond de hoeken af */
-    text-shadow: 0 0 1rem rgb(138, 11, 72); /* Voeg een schaduw aan de tekst toe */
-    text-decoration: none; /* Verwijder standaard tekstdecoratie */
-    text-transform: uppercase; /* Maak alle tekst hoofdletters */
-    letter-spacing: 0.05rem; /* Voeg letterafstand toe */
-    transition: 0.5s; /* Voeg een soepele overgang toe */
-    z-index: 1; /* Plaats de knop boven andere elementen */
-}
-
-.journal-button:hover {
-    color: #fff; /* Maak de tekst wit bij hover */
-    border: 0.1rem solid rgb(218, 27, 87); /* Verander de randkleur bij hover */
-    box-shadow: 0 0 0 rgb(198, 81, 136); /* Verwijder schaduw bij hover */
-}
-
-.journal-button::before {
-    content: ''; /* Pseudo-element om extra animatie toe te voegen */
-    position: absolute; /* Absoluut gepositioneerd voor overlap */
-    top: 0; /* Plaats bovenaan de knop */
-    left: 0; /* Plaats aan de linkerkant van de knop */
-    width: 100%; /* Maak de breedte gelijk aan de knop */
-    height: 100%; /* Maak de hoogte gelijk aan de knop */
-    background: rgb(236, 59, 156); /* Voeg een roze achtergrond toe */
-    z-index: -1; /* Plaats het pseudo-element onder de knop */
-    transform: scale(0); /* Verberg het element door de schaal op nul te zetten */
-    transition: 0.5s; /* Voeg een overgang toe */
-}
-
-.journal-button:hover::before {
-    transform: scale(1); /* Vergroot het element bij hover */
-    transition-delay: 0.5s; /* Voeg een vertraging toe bij het hoveren */
-    box-shadow: 0 0 0.5rem rgb(226, 53, 128), 0 0 1.5rem rgb(239, 50, 151), 0 0 3rem rgb(247, 50, 119); /* Voeg gloed toe bij hover */
-}
-
-.journal-button span {
-    position: absolute; /* Absoluut gepositioneerd voor extra styling */
-    background: rgb(205, 52, 144); /* Roze achtergrondkleur */
-    pointer-events: none; /* Schakel interactie uit */
-    border-radius: 0.1rem; /* Rond de hoeken af */
-    box-shadow: 0 0 0.5rem rgb(213, 85, 175), 0 0 1rem rgb(223, 60, 117), 0 0 1.5rem rgb(221, 52, 136), 0 0 2.5rem rgb(183, 43, 106), 0 0 5rem rgb(205, 86, 120); /* Voeg een complexe schaduw toe */
-    transition: 0.5s ease-in-out; /* Voeg een overgang toe */
-    transition-delay: 0.25s; /* Voeg een vertraging toe voor het hoveren */
-}
-
-.journal-button:hover span {
-    opacity: 0; /* Verlaag de transparantie bij hover */
-    transition-delay: 0s; /* Verwijder vertraging bij hover */
-}
-
-.journal-button span:nth-child(1), .journal-button span:nth-child(3) {
-    width: clamp(1.5rem, 4vw, 2rem); /* Responsieve breedte */
-    height: 0.2rem; /* Stel een dunne hoogte in */
-}
-
-.journal-button span:nth-child(2), .journal-button span:nth-child(4) {
-    width: 0.2rem; /* Smalle breedte */
-    height: clamp(1.5rem, 4vw, 2rem); /* Responsieve hoogte */
-}
-
-.journal-button span:nth-child(1) { top: calc(50% - 0.1rem); left: -2rem; transform-origin: left; } /* Positie instellingen voor de eerste span */
-.journal-button:hover span:nth-child(1) { left: 50%; } /* Hover positie voor de eerste span */
-.journal-button span:nth-child(3) { top: calc(50% - 0.1rem); right: -2rem; transform-origin: right; } /* Positie instellingen voor de derde span */
-.journal-button:hover span:nth-child(3) { right: 50%; } /* Hover positie voor de derde span */
-.journal-button span:nth-child(2) { left: calc(50% - 0.1rem); top: -2rem; transform-origin: top; } /* Positie instellingen voor de tweede span */
-.journal-button:hover span:nth-child(2) { top: 50%; } /* Hover positie voor de tweede span */
-.journal-button span:nth-child(4) { left: calc(50% - 0.1rem); bottom: -2rem; transform-origin: bottom; } /* Positie instellingen voor de vierde span */
-.journal-button:hover span:nth-child(4) { bottom: 50%; } /* Hover positie voor de vierde span */
 
 /* Video styling */
 .background-video {
     display: block; /* Zorg dat de video als blokelement verschijnt */
-    margin: clamp(1rem, 5vh, 3rem) auto; /* Voeg marge rondom de video toe */
-    width: 100%; /* Maak de video de volledige breedte van de container */
-    max-width: 37.5rem; /* Stel een maximale breedte in voor de video */
-    height: auto; /* Zorg dat de hoogte proportioneel past */
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 37.5rem;
+    height: auto;
     z-index: -1; /* Plaats de video achter andere elementen */
-    pointer-events: none; /* Schakel interactie met de video uit */
+    pointer-events: none;/* Schakel interactie met de video uit */
+}
+
+
+/* Button styling */
+.journal-button {
+    position: absolute;
+    top: 90vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.8rem 1.8vw;
+    font-size: 1.2rem;
+    color: rgb(255, 0, 195);
+    border: 0.1em solid rgba(243, 10, 154, 0.5);
+    border-radius: 0.2em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
