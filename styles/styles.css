@@ -243,14 +243,14 @@ body {
 }
 
 /* Zorgt voor een subtiele bounce-animatie..*/
-@keyframes bounce {
-  0%, 100% {
-      transform: translate(-50%, 0);
+  @keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-1em);
+    }
   }
-  50% {
-      transform: translate(-50%, -1em); /* Em-schaalbare bounce */
-  }
-}
 
 .scroll-down:hover {
   text-shadow: 0 0 1em rgba(255, 255, 255, 0.8); /* Em-gebaseerde glow */
