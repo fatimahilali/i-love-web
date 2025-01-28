@@ -242,7 +242,7 @@ body {
   cursor: pointer;
 }
 
-/* Zorgt voor een subtiele bounce-animatie */
+/* Zorgt voor een subtiele bounce-animatie..*/
 @keyframes bounce {
   0%, 100% {
       transform: translate(-50%, 0);
