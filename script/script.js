@@ -108,3 +108,8 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         gsap.to(link, { scale: 1, duration: 0.5, ease: 'power1.out' });
     });
 });
+
+
+
+
+
