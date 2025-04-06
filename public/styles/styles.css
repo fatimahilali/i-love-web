@@ -1,0 +1,264 @@
+/** WebKit-eigenschappen:
+ * Animatie en transities: heb ik van een boek die ik in Kindle heb gelezen, naam: Responsive Web Design with HTML5 and CSS
+ */
+
+
+/* Algemene stijlen voor de pagina */
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: #101013;
+  color: #fff; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+ }
+
+
+/* Stijlen voor de logo-tekst */
+.logo-text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.1em; 
+  font-size: 2.5rem; 
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 3.125rem;
+}
+
+.welcome-text {
+  font-size: 1.6rem;
+  text-align: center; 
+  color: #ffe6d6; 
+  margin-bottom: 3.75rem;
+  line-height: 1.5; 
+  font-weight: bold;
+}
+
+.welcome-text:hover {
+  color: #ff55a3;
+
+}
+
+
+/* Stijl voor het woord 'portfolio' */
+.highlight {
+  font-weight: bold; /* Optioneel: maak het vetgedrukt */
+  background: linear-gradient(90deg, #ff55a3, #ffe6d6); /* Lineaire gradient als achtergrond */
+  -webkit-background-clip: text; /* Clip de achtergrond naar de tekstvorm */
+  -webkit-text-fill-color: transparent; /* Maak de tekst zelf transparant */
+}
+
+/* Hover-effect: voor het woord 'portfolio'*/
+.highlight:hover {
+  background: none; /* Verwijder de gradient */
+  -webkit-text-fill-color: #ffe6d6; /* Effen kleur bij hover */
+  transition: all 0.3s ease; /* Soepel overgangseffect */
+}
+
+/* Grote tekst met subtiele animaties */
+.key {
+  font-size: 10vw; /* Dynamische lettergrootte */
+  display: inline-block;
+  transition: transform 0.3s, color 0.3s;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ff55a3, #ffe6d6, #f5cab5, #ffe6d6); /* Meerkleurige gradient */
+  background-size: 200%; /* Grotere achtergrond om scroll-effect zichtbaar te maken */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  overflow: hidden;
+  animation: scrollGradient 5s linear infinite; /* Scroll-animatie toegevoegd */
+}
+
+/* Subtiel glanseffect */
+.key::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-30deg);
+  animation: shine 2s infinite;
+}
+
+/* Animatie voor het scrollen van de gradient */
+@keyframes scrollGradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+/* Animaties voor de grote tekst */
+@keyframes pressDown1 {
+  30%, 40%, 100% {
+    transform: translateY(0); /* Geen verschuiving */
+  }
+  35% {
+    transform: translateY(0.625rem); /* Verschuiving omlaag */
+  }
+}
+
+@keyframes pressDown2 {
+  70%, 80%, 100% {
+    transform: translateY(0); /* Geen verschuiving */
+  }
+  75% {
+    transform: translateY(0.625rem); /* Verschuiving omlaag */
+  }
+}
+
+/* Pas animaties toe op de tekst op basis van hun volgorde */
+.key:nth-child(odd) {
+  animation: pressDown1 2.5s infinite, scrollGradient 5s linear infinite; /* Combineer scroll- en druk-animatie */
+}
+
+.key:nth-child(even) {
+  animation: pressDown2 3s infinite, scrollGradient 5s linear infinite; /* Combineer scroll- en druk-animatie */
+}
+
+/* Extra ruimte tussen specifieke letters */
+.key:nth-child(6), .key:nth-child(9) {
+  margin-right: 0.2em; /* Maakt de ruimte tussen woorden beter zichtbaar */
+}
+
+
+/* Navigatiebalk stijlen */
+.navbar {
+  position: fixed; 
+  top: 5%;
+  left: 0;
+  width: 100%; /* Volledige breedte */
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: 0.625rem 0; 
+  box-sizing: border-box;
+  z-index: 1000; /* Zorgt dat de navbar altijd zichtbaar is boven andere content */
+}
+
+/* Navigatielinks */
+.nav-links {
+  display: flex; 
+  gap: 1.875rem;
+  justify-content: center;
+  align-items: center; 
+}
+
+/* Navigatielinks (individuele links) */
+.nav-links a {
+  text-decoration: none; 
+  font-weight: bold; 
+  text-transform: uppercase; /* Hoofdletters */
+  font-size: 1rem; 
+  color: #f5cab5; 
+  position: relative; /* Voor underline-effect */
+  transition: color 0.3s;
+}
+
+/* Hover-effect voor navigatielinks */
+.nav-links a:hover {
+  color: #ff55a3;  
+}
+
+/* Voeg een punt toe na elke link behalve de laatste */
+.nav-links a:not(:last-child)::after {
+  content: "•"; /* De punt */
+  color: #ff55a3;  /* Kleur van de punt */
+  margin-left: 0.625rem;  /* Ruimte tussen de link en de punt */
+  font-size: 1.2rem; /* Iets grotere punt */
+}
+/* Container voor knoppen */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+/* Knoppenstijl */
+.button {
+  position: relative;
+  padding: 0.875rem 1.75rem;/* Iets grotere knoppen voor een betere zichtbaarheid */
+  color: #ffe6d6;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: bold;
+  background: none;
+  border: 0.125rem solid #f5cab5;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 85, 163, 0.1); /* Zachte pastelachtige achtergrondkleur */
+  transition: all 0.3s ease; /* Soepelere transities bij hover */
+}
+
+.button:hover {
+  transform: scale(1.05);
+  color: #ff55a3; 
+  background-color: rgba(255, 85, 163, 0.3); /* Iets sterker effect bij hover */
+  box-shadow: 0 0.375rem 0.625rem rgba(0, 0, 0, 0.2);
+}
+
+/* Afbeelding stijl */
+.image {
+  position: absolute;
+  right: 0;
+  left: 0;
+  text-align: center;
+  bottom: 0%;
+  z-index: -1;
+  filter: drop-shadow(0 4px 8px rgba(255, 85, 163, 0.3)); /* Subtiele schaduw met een roze tint */
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 3vh; 
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem; 
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.15em; /* Em-schaalbare letterafstand */
+  text-transform: uppercase;
+  opacity: 0.8;
+  animation: bounce 1.5s infinite ease-in-out;
+  cursor: pointer;
+}
+
+/* Zorgt voor een subtiele bounce-animatie..*/
+  @keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-1em);
+    }
+  }
+
+.scroll-down:hover {
+  text-shadow: 0 0 1em rgba(255, 255, 255, 0.8); /* Em-gebaseerde glow */
+  transform: translate(-50%, -1.2em);
+}
+/* Standaard styling voor het element */
+
+
+
+
+

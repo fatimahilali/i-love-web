@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;400&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+
+
+
+body {
+  background-color: #101013;
+  color:#f0eada;
+  font-family: 'Inter', sans-serif;
+  max-width: 800px;
+  line-height: 1.6;
+  padding: 2rem 3rem; /* wat meer ruimte aan zijkant en boven */
+
+}
+
+
+  
+.journal-date {
+  font-size: 1.25rem;
+  font-weight: 100;
+  font-family: 'IBM Plex Mono', monospace;
+  color: rgb(239, 90, 175);
+  margin-bottom: 0.5rem;
+}
+
+.journal-title {
+  color: #f5cab5;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* De container die flexbox toepast */
+.journal-image-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: start; /* of 'center' als je ze in het midden wil */
+    margin-top: 1rem;
+  }
+  
+  /* De individuele afbeelding */
+  .journal-image {
+    height: 300px; /* kleiner gemaakt zoals je vroeg */
+    width: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0;
+  }
+  
+  
+  
+.journal-text {
+  max-width: 700px;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 1.75;
+}
+
+
+
+
