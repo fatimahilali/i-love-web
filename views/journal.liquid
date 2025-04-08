@@ -1,69 +1,30 @@
-<!DOCTYPE html>
-<html lang="nl">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles/journal.css">
-  </head>
-  <body>
+<style>
+  body {
+    background-color: #0e0d0d;
+    color: #ffff;
+    font-size: 1.5rem;
+  }
 
-    <main>
-      <article class="journal-entry">
-        <header>
-          <h1 class="journal-date">24-02-2025</h1>
-          <details>
-            <summary class="journal-title">Notities</summary>
+  a {
+    color: rgb(239, 90, 175);
+    text-decoration: none;
+  }
 
-            <section>
-              <p class="journal-text">
-                Uitzoeken wat je allemaal met een POST-request kunt doen. Dit heb ik aan mijn tafel gedaan en we kwamen op het volgende uit.
-              </p>
+  li {
+    margin-bottom: 0.5rem;
+  }
+</style>
 
-              <img
-                class="journal-image"
-                src="assets/imag1.png"
-                alt="Visuele uitleg over POST-request" />
+<section>
+  <article>
+    <ul>
+      {% for file in files %}
+        <li>
+          <a href="/journal/{{ file | slice:0, -3 }}">{{ file | slice: 0, -3 }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </article>
+</section>
 
-              <p class="journal-text">
-                Daarna zijn we met het squad-team – bestaande uit Clarice, Rafi, Nadia en mij – begonnen met brainstormen over ons aankomende project. We bespraken met welke website we verder gaan, wie welke taken op zich neemt, wat we meenemen uit het vorige project en wat we achterlaten. Ook hebben we besproken hoe we het hele proces gaan bijhouden en hoe we effectief gaan samenwerken als team om tot een goed eindproduct te komen.
-              </p>
-
-              <div class="journal-image-row">
-                <img
-                  class="journal-image"
-                  src="assets/image2.png"
-                  alt="Brainstorm whiteboard" />
-                <img
-                  class="journal-image"
-                  src="assets/image3.png"
-                  alt="Projectplanning op scherm" />
-                <img
-                  class="journal-image"
-                  src="assets/image4.png"
-                  alt="Samenwerking" />
-              </div>
-            </section>
-          </details>
-        </header>
-      </article>
-    </main>
-
-
-    <section>
-      <article>
-        {% for file in files %}
-          <a href="/journal/{{ file | slice:0, -3}}">{{ file | slice: 0, -3 }}</a>
-          <!-- Met slice haal je de laatste 3 karakters weg, in dit geval .md. -->
-        {% endfor %}
-      </article>
-    </section>
-
-    {{ files | json }}
-
-
-    <!--     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="script/journal.js"></script> --></body>
-</html>
+<div hidden>{{ files | json }}</div>

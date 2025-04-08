@@ -34,19 +34,26 @@ app.get('/', async function (req, res) {
   res.render('home.liquid'); 
 });
 
+
+// Route om de hoofdpagina van het journal weer te geven
 app.get('/journal', async function (req, res) {
-  res.render('journal.liquid', {files: files})
+  // Render de 'journal.liquid' template en geef het 'files'-object mee
+  res.render('journal.liquid', { files: files })
 })
 
 
 
+
+// Route om een specifiek artikel te tonen op basis van de slug in de URL
 app.get('/journal/:slug', async function (request, response) {
-  const fileContents = await readFile('content/' + request.params.slug + '.md', { encoding: 'utf8' }) //je maakt een variable aan. Je pakt de file met de slg die je op regel 76 hebt aangegeven. Achter elke bestand heb je .md en daarom geef je dit ook hier mee
-  const opgemaakt = marked.parse(fileContents) //  content wordt omgezet met marked in HTML.
-  response.render('artikel.liquid', {file: opgemaakt}) 
-
+  // Lees de inhoud van het .md-bestand uit de 'content' map
+  // De bestandsnaam wordt bepaald door de slug uit de URL (bijv. /journal/artikel-1 → artikel-1.md)
+  const fileContents = await readFile('content/' + request.params.slug + '.md', { encoding: 'utf8' }) 
+  // Zet de inhoud van het Markdown-bestand om naar HTML met 'marked'
+  const opgemaakt = marked.parse(fileContents) 
+  // Render de 'artikel.liquid' template en geef de HTML-inhoud mee als 'file'
+  response.render('artikel.liquid', { file: opgemaakt }) 
 })
-
 
 
 
