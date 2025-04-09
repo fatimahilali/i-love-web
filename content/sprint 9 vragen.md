@@ -4,7 +4,7 @@
     I got this 🍗  
    Met Node.js kun je de backend maken van je website of app.  
 
-2. **Ik weet wat het doel van `package.json` is en heb hier aanpassingen in gemaakt**   
+2. **Ik weet wat het doel van `package.json` is en heb hier aanpassingen in gemaakt**
     I got this 🍗  
    Houdt info over je project bij, zoals welke packages je gebruikt, maar ik heb geen aanpassingen gedaan.
 
@@ -22,7 +22,7 @@
    Ik moet herstarten als ik iets aan de code verander, zodat de server de nieuwe code gebruikt.
 
 6. **Ik heb een strategie voor debuggen in NodeJS**
-    I got this 🍗 
+    I got this 🍗
    Fouten zoeken, bijvoorbeeld met `console.log()`: [Code voorbeeld](https://github.com/fatimahilali/the-web-is-for-everyone-interactive-functionality/blob/0d5f4bac48cd1e78e112efe9794473a9aac8df44/server.js#L154C1-L158C3)
 
 7. **Ik kan uitleggen wat Express.js doet en waarom het nodig is om met NodeJS een website te bouwen**  

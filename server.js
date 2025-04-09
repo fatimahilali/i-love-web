@@ -42,6 +42,10 @@ app.get('/journal', async function (req, res) {
 })
 
 
+// Route om de hoofdpagina van het journal weer te geven
+app.get('/about', async function (req, res) {
+  res.render('about.liquid');
+})
 
 
 // Route om een specifiek artikel te tonen op basis van de slug in de URL
