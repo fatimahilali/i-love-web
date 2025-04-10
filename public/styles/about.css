@@ -151,3 +151,128 @@ button:hover {
 .cv {
   margin-left: 2rem; 
 }
+
+
+
+.word-rain {
+  position: absolute;
+  top: 15rem;
+  left: 7rem;
+  width: 28.125rem;
+  height: 28.125rem;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.word-rain span {
+  position: absolute;
+  top: 5rem;
+  color: #f0eada;
+  font-size: 0.9rem;
+  font-weight: 900;
+  white-space: nowrap;
+  text-shadow: 0 0 5px rgba(245, 202, 181, 0.7);
+  opacity: 0;
+  animation: fallOneByOne 22s linear infinite;
+}
+
+/* === delays én posities  === */
+.word-rain span:nth-child(1) {
+  animation-delay: 0s;
+  left: 10%;
+}
+.word-rain span:nth-child(2) {
+  animation-delay: 2s;
+  left: 25%;
+}
+.word-rain span:nth-child(3) {
+  animation-delay: 4s;
+  left: 40%;
+}
+.word-rain span:nth-child(4) {
+  animation-delay: 6s;
+  left: 55%;
+}
+.word-rain span:nth-child(5) {
+  animation-delay: 8s;
+  left: 70%;
+}
+.word-rain span:nth-child(6) {
+  animation-delay: 10s;
+  left: 15%;
+}
+.word-rain span:nth-child(7) {
+  animation-delay: 12s;
+  left: 35%;
+}
+.word-rain span:nth-child(8) {
+  animation-delay: 14s;
+  left: 50%;
+}
+.word-rain span:nth-child(9) {
+  animation-delay: 16s;
+  left: 65%;
+}
+.word-rain span:nth-child(10) {
+  animation-delay: 18s;
+  left: 80%;
+}
+.word-rain span:nth-child(11) {
+  animation-delay: 20s;
+  left: 45%;
+}
+
+@keyframes fallOneByOne {
+  0% {
+    transform: translateY(-2rem);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(80%);
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(130%);
+    opacity: 0;
+  }
+}
+
+
+.speech-bubble {
+  position: absolute;
+  top: 24rem;
+  left: 26rem;
+  background-color: rgba(225, 114, 205, 0.1);
+  color: #fce9f6;
+  padding: 0.6rem 1rem;
+  border-radius: 1.2rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 500;
+  z-index: 3;
+  box-shadow: 0 0 12px rgba(239, 90, 175, 0.3);
+  max-width: 12rem;
+  text-align: center;
+}
+
+/* ===  staartje van de spraak gedeelte  === */
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -0.6rem;
+  left: 2.2rem;
+  width: 0;
+  height: 0;
+  border: 0.6rem solid transparent;
+  border-top-color: rgba(225, 114, 205, 0.1); 
+}
+
+
