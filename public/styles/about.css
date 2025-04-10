@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* === BODY / DEFAULT === */
+body {
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* === ABOUT SECTION === */
+.about {
+  min-height: 100vh;
+  width: 100%;
+  padding: 6.25rem 0; 
+  background-color: #000;
+}
+
+.main {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 0 1.25rem; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2.5rem; 
+}
+
+/* === IMAGE STYLE  === */
+.about img {
+  width: 28.125rem; 
+  max-width: 100%;
+  margin-top: 5rem;
+  height: auto;
+  border-radius: 3em;
+  border: 0.1875rem solid transparent;
+  background-size: 400% 400%;
+  animation: animate-border 10s ease infinite;
+  padding: 0.3125rem; 
+  box-shadow: 0 0 1.5625rem rgba(239, 90, 175, 0.4), 
+              0 0 3.125rem rgba(239, 90, 175, 0.2);  
+  transition: transform 0.3s ease;
+}
+
+.about img:hover {
+  transform: scale(1.02);
+}
+
+@keyframes animate-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* === TEXT CONTENT === */
+.about-text {
+  flex: 1;
+  max-width: 37.5rem; 
+}
+
+.about-text h1 {
+  font-size: 4rem; 
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.625rem; 
+}
+
+.about-text h5 {
+  font-size: 1.375rem; 
+  color: #fff;
+  margin-bottom: 1.875rem;
+}
+
+.about-text h5 span {
+  color: rgb(239, 90, 175);
+  font-weight: 600;
+}
+
+/* === PERSONAL TEXT BOX === */
+.about-box {
+  border-left: 0.3125rem solid #f5cab5;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.5625rem 1.875rem;
+  font-style: italic;
+  color: #f0eada;
+  border-radius: 0.625rem; 
+  box-shadow: 0 0 0.9375rem rgba(245, 202, 181, 0.1); 
+  transition: 0.4s ease;
+}
+
+.about-box p {
+  font-size: 1rem; 
+  line-height: 1.8;
+  color: #f0eada;
+  margin: 0;
+}
+
+
+.about-box .author {
+  display: block;
+  margin-top: 1.25rem; 
+  text-align: right;
+  font-size: 0.95rem;
+  font-style: normal;
+  color: #f5cab5;
+}
+
+.author {
+  display: block;
+  text-align: right;
+  margin-top: 1.25rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #f5cab5;
+}
+
+
+/* === BUTTONS === */
+button {
+  background: transparent;
+  color: #f5cab5;
+  border: 0.125rem solid #f5cab5; 
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.8125rem 1.875rem; 
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 1.875rem; 
+}
+
+button:hover {
+  background: rgba(239, 90, 175, 0.2);
+  color: #fff;
+  box-shadow: 0 0 0.625rem rgb(239, 90, 175), 
+              0 0 1.25rem rgb(239, 90, 175);    
+  transform: scale(1.05);
+}
+
+.cv {
+  margin-left: 2rem; 
+}
