@@ -1,4 +1,9 @@
-# Aantekeningen hoorcollege – Vasilis van Gemert
+
+# Hoorcollege: We ❤️ Web
+
+---
+
+## Aantekeningen hoorcollege – Vasilis van Gemert
 
 - Hij heet Vasilis van Gemert  
 - Werkt als front-end ontwikkelaar en docent bij CMD  
@@ -15,7 +20,7 @@
 
 ---
 
-# Aantekeningen hoorcollege – Garnier
+## Aantekeningen hoorcollege – Garnier
 
 - Garnier gaf info over animaties en interactiviteit op websites  
 - Hij werkt met tools zoals React, Vue, GSAP en WebGL  
@@ -32,7 +37,8 @@
 ![garnier screenshot](/assets/garnier.png)
 
 ---
-# Aantekeningen hoorcollege – Dion Pieters: Portfolio maken
+
+## Aantekeningen hoorcollege – Dion Pieters: Portfolio maken
 
 - Dion begon met de vraag:  
   “Heb je eigenlijk écht een portfolio nodig? Moet je het zelf maken? Of kun je het laten maken?”  
@@ -51,7 +57,8 @@
 ![dion screenshot](/assets/dion.png)
 
 ---
-# Aantekeningen hoorcollege – Emiel Van Betsbrugge (Active Theory)
+
+## Aantekeningen hoorcollege – Emiel Van Betsbrugge (Active Theory)
 
 - Emiel werkt bij Active Theory → o.a. Spotify Wrapped & Patronus Quiz  
 - Oud-collega van Dion  
@@ -77,7 +84,8 @@
 ![Emiel screenshot](/assets/emiel.png)
 
 ---
-# Aantekeningen hoorcollege – Kilian Valkhof: Polypane
+
+## Aantekeningen hoorcollege – Kilian Valkhof: Polypane
 
 - Kilian Valkhof is de maker van Polypane  
 - Hij bouwde het omdat bestaande tools niet goed genoeg waren  
@@ -90,13 +98,15 @@
 ![vasilis screenshot](/assets/polypane.png)
 
 ---
-# Aantekeningen hoorcollege – Cassie Evans: GSAP Animaties
+
+## Aantekeningen hoorcollege – Cassie Evans: GSAP Animaties
 
 - Cassie Evans gaf uitleg over GSAP → animatielibrary voor websites  
 - Ze liet allemaal coole features zien van GSAP, superveel mogelijkheden  
 - Er was ook ruimte om vragen te stellen  
 
 Wat ze liet zien:
+
 - QuickSetter, Tween, QuickTo  
   → manieren om supersnel animaties op elementen toe te passen  
 - GSAP Utils (Utility Methods):  
@@ -110,8 +120,7 @@ Wat ze liet zien:
 - Je kunt er echt next level animaties mee maken  
 - Website met voorbeelden: [gsap.com/showcase](https://gsap.com/showcase) → echt vet!  
 
-<p align="center">
-  <img src="/assets/gsap1.png" width="30%" alt="GSAP screenshot 1">
-  <img src="/assets/gsap2.png" width="30%" alt="GSAP screenshot 2">
-  <img src="/assets/gsap3.png" width="30%" alt="GSAP screenshot 3">
-</p>
+| ![GSAP 1](/assets/gsap1.png) | ![GSAP 2](/assets/gsap2.png) | ![GSAP 3](/assets/gsap3.png) |
+|-----------------------------|-----------------------------|-----------------------------|
+
+---
