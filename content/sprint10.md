@@ -217,7 +217,7 @@ Ik gebruik View Transitions en lazy loading, zodat de pagina sneller laadt en oo
 ## Progressive UI States
 
 **Kun je UI states gebruiken met progressive enhancement?**  
-Ja.  
+2 punt Ja.  
 De basis werkt altijd, extra’s zijn optioneel en kunnen werken zonder animatie.
 Ik heb het in deze sprint niet gebruikt, maar ik weet hoe het werkt.
 
