@@ -6,9 +6,8 @@
 Ja. Ik gebruik server-side JavaScript in mijn `server.js` om data op te halen en pagina’s te maken:  
 https://github.com/fatimahilali/user-experience-enhanced-website/blob/e3af61af438c00d2f178c93e927c82c739ff03cb/server.js#L38C1-L46C54
 
-Client-side gebruik ik voor dingen in de browser, zoals animaties:  
-https://github.com/fatimahilali/user-experience-enhanced-website/blob/e3af61af438c00d2f178c93e927c82c739ff03cb/views/gallery.liquid#L84C10-L92C1
-
+Client-side gebruik ik voor dingen in de browser, zoals animaties,formulier validatie, 
+In dit project heb ik het niet toegepast, maar ik weet hoe het werk  
 ---
 
 ## Debugstrategie voor JS en Liquid
@@ -29,7 +28,8 @@ Ja.
 Ja. Ik gebruik GET-routes met `req.params` en `req.query`:  
 https://github.com/fatimahilali/user-experience-enhanced-website/blob/e3af61af438c00d2f178c93e927c82c739ff03cb/server.js#L39C2-L47C1
 
-POST ken ik ook, ik weet hoe de POST-request werkt.
+POST gebruik je om gegevens te versturen naar de server, zoals bij het versturen van een formulier. Je leest de data dan uit met req.body.
+In dit project heb ik geen POST-route nodig gehad, maar ik weet hoe je die opzet met Express.
 
 ---
 
@@ -48,14 +48,14 @@ Ja.
 Ik haal alleen de velden op die ik nodig heb:  
 https://github.com/fatimahilali/user-experience-enhanced-website/blob/e3af61af438c00d2f178c93e927c82c739ff03cb/server.js#L60C1-L61C1
 
-Sorting heb ik nog niet gebruikt, maar ik weet dat het kan met bijv. `?sort=veldnaam`.
-
+Sorting heb ik nog niet gebruikt, maar ik weet dat het kan met ?sort=veldnaam.
+Daarmee kun je data in volgorde zetten, zoals op alfabet of op datum.
 ---
 
 ## Async in JavaScript
 
 **Snap je wat `async` doet?**  
-Ja. `async` maakt functies asynchroon, zodat ik `await` kan gebruiken voor bijv. API-calls:  
+Ja.Met`async` en `await`  kun je op data wachten zonder dat je hele site vastloopt.
 https://github.com/fatimahilali/user-experience-enhanced-website/blob/e3af61af438c00d2f178c93e927c82c739ff03cb/server.js#L27C1-L30C1
 
 ---
@@ -160,7 +160,7 @@ Ik maak branches aan voor taken, open een pull request, laat deze reviewen en me
 ## Formulier Validatie Client-side
 
 **Kun je formulieren client-side valideren?**  
-Ik heb het in dit project niet gebruikt, maar ik weet dat het betekent dat je formuliergegevens controleert vóórdat je ze verstuurt. Dus: client-side validatie.
+Ik heb het in dit project niet gebruikt, maar ik weet dat je met client-side validatie formuliergegevens controleert voordat ze worden verstuurd.
 
 ---
 
@@ -178,6 +178,9 @@ ARIA alleen als semantiek ontbreekt.
 **Weet je wat layout shifts zijn?**  
 Ja.  
 Ze ontstaan bij bijvoorbeeld afbeeldingen zonder vaste afmetingen.
+Je lost het op door breedte en hoogte toe te voegen aan de afbeelding.
+
+[Link naar code ›](https://github.com/fatimahilali/user-experience-enhanced-website/blob/e3af61af438c00d2f178c93e927c82c739ff03cb/views/detail.liquid#L73C12-L75C53)
 
 ---
 
@@ -196,8 +199,10 @@ Tools: Lighthouse / PageSpeed
 ## Perceived Performance Verbeteren
 
 **Kun je de ervaring sneller laten lijken?**  
-Ja.  
-Ik gebruik View Transitions en andere animaties.
+Ja.
+Ik gebruik View Transitions en lazy loading, zodat de pagina sneller laadt en ook sneller aanvoelt.
+
+[Link naar code ›](https://github.com/fatimahilali/user-experience-enhanced-website/blob/e3af61af438c00d2f178c93e927c82c739ff03cb/views/gallery.liquid#L86C11-L91C66)
 
 ---
 
@@ -206,6 +211,7 @@ Ik gebruik View Transitions en andere animaties.
 **Kun je UI states gebruiken met progressive enhancement?**  
 Ja.  
 De basis werkt altijd, extra’s zijn optioneel en kunnen werken zonder animatie.
+Ik heb het in deze sprint niet gebruikt, maar ik weet hoe het werkt.
 
 ---
 
@@ -230,3 +236,5 @@ Niet in dit project gedaan, maar ik weet hoe het moet met JS of CSS keyframes.
 **Kun je feature detection gebruiken in HTML/CSS/JS?**  
 Ja.  
 Bijvoorbeeld via `<picture>` voor AVIF/WebP support.
+
+[Link naar code ›](https://github.com/fatimahilali/user-experience-enhanced-website/blob/e3af61af438c00d2f178c93e927c82c739ff03cb/views/gallery.liquid#L50C2-L94C21)
