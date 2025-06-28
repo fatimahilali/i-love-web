@@ -226,7 +226,7 @@ Ik heb het in deze sprint niet gebruikt, maar ik weet hoe het werkt.
 ## UI Prettiger Maken Zonder Functionaliteit uit het oog te verliezen
 
 **Kun je UX verbeteren zonder afbreuk?**  
-3 punten Ja, UX verbeteren zonder functionaliteit op te offeren komt door progressive enhancement.
+3 punten Ja, dat kan. Progressive enhancement zorgt ervoor dat je de UX verbetert zonder functies te verliezen
 
 ---
 
